@@ -1,5 +1,6 @@
 # AnchorMe App
 AnchorMe is a primarily mobile application made for managing harbours berths, reservations and offering a simple way to comunicate and get information about the possibilities of the harbour for captains on the sea.
+
 This application is the final project for the bachelor degree of Software Engineering.
 
 ## Technologies used
