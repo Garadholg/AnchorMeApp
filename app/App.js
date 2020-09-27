@@ -3,18 +3,19 @@ import { Provider as StoreProvider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 
+import { LocalizationProvider } from './translations/Translations';
 import MainNavigator from './navigation/MainNavigation';
 
-const rootReducer = combineReducers({
+// const rootReducer = combineReducers({
 
-});
+// });
 
-const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+// const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
   return (
-    <StoreProvider store={store}>
+    <LocalizationProvider>
       <MainNavigator />
-    </StoreProvider>
+    </LocalizationProvider>
   );
 }
