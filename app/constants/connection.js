@@ -1,0 +1,1 @@
+export default API_URL = 'http://192.168.5.21:9527/api/';

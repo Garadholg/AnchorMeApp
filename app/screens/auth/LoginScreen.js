@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-
-import { LocalizationContext } from '../../translations/Translations';
+import { useDispatch } from 'react-redux';
 
 import FloatingLabelInput from '../../components/common/FloatingLabelInput';
 import DismissKeyboardView from '../../components/common/DismissKeyboardView';
@@ -11,9 +10,20 @@ import Colors from '../../constants/colors';
 const LoginScreen = props => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-    const { translations, initializeAppLanguage } = useContext(LocalizationContext);
-    initializeAppLanguage();
+    const dispatch = useDispatch();
+
+    const onLoginPressed = async () => {
+        setIsLoading(true);
+
+        let data = {
+            username: username,
+            password: password
+        };
+
+
+    }
 
     return (
         <DismissKeyboardView>
@@ -24,13 +34,13 @@ const LoginScreen = props => {
                     resizeMode="contain"
                 />
                 <FloatingLabelInput
-                    label={translations['authentication.username']}
+                    label='Username'
                     style={styles.input}
                     value={username}
                     onChangeText={(value) => {setUsername(value)}}
                 />
                 <FloatingLabelInput
-                    label={translations['authentication.password']}
+                    label='Password'
                     style={styles.input}
                     value={password}
                     onChangeText={(value) => {setPassword(value)}}
@@ -38,6 +48,8 @@ const LoginScreen = props => {
                 />
                 <SubmitButton 
                     text="Login"
+                    style={styles.button}
+                    onPress={onLoginPressed}
                 />
             </View>
         </DismissKeyboardView>
@@ -61,6 +73,11 @@ const styles = StyleSheet.create({
     logo: {
         width: "50%",
         height: 300
+    },
+
+    button: {
+        width: "80%",
+        marginTop: 16
     }
 });
 
