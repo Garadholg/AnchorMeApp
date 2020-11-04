@@ -1,5 +1,6 @@
 {
     "authentication": {
+        "login_button": "Login",
         "password": "Password",
         "username": "Username"
     }

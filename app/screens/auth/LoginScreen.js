@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 
+import { LocalizedStrings as t } from '../../translations/Translations';
 import FloatingLabelInput from '../../components/common/FloatingLabelInput';
 import DismissKeyboardView from '../../components/common/DismissKeyboardView';
 import SubmitButton from '../../components/common/SubmitButton';
@@ -34,20 +35,20 @@ const LoginScreen = props => {
                     resizeMode="contain"
                 />
                 <FloatingLabelInput
-                    label='Username'
+                    label={t('authentication.username')}
                     style={styles.input}
                     value={username}
                     onChangeText={(value) => {setUsername(value)}}
                 />
                 <FloatingLabelInput
-                    label='Password'
+                    label={t('authentication.password')}
                     style={styles.input}
                     value={password}
                     onChangeText={(value) => {setPassword(value)}}
                     secureTextEntry
                 />
                 <SubmitButton 
-                    text="Login"
+                    text={t('authentication.login_button')}
                     style={styles.button}
                     onPress={onLoginPressed}
                 />

@@ -1,5 +1,6 @@
 {
     "authentication": {
+        "login_button": "Prijava",
         "password": "Lozinka",
         "username": "Korisničko ime"
     }
