@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnchorMeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LoginCredentials">
+    <Key>
+      <PropertyRef Name="IDLoginCredentials" />
+    </Key>
+    <Property Name="IDLoginCredentials" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserDataID" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Pwd" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UserData" Relationship="Self.FK_LoginCredentials_UserData" FromRole="LoginCredentials" ToRole="UserData" />
+  </EntityType>
+  <EntityType Name="UserData">
+    <Key>
+      <PropertyRef Name="IDUserData" />
+    </Key>
+    <Property Name="IDUserData" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoginCredentials" Relationship="Self.FK_LoginCredentials_UserData" FromRole="UserData" ToRole="LoginCredentials" />
+  </EntityType>
+  <Association Name="FK_LoginCredentials_UserData">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="LoginCredentials" Type="Self.LoginCredentials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="IDUserData" />
+      </Principal>
+      <Dependent Role="LoginCredentials">
+        <PropertyRef Name="UserDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AnchorMeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" />
+    <EntitySet Name="UserData" EntityType="Self.UserData" />
+    <AssociationSet Name="FK_LoginCredentials_UserData" Association="Self.FK_LoginCredentials_UserData">
+      <End Role="UserData" EntitySet="UserData" />
+      <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
