@@ -3,5 +3,17 @@
         "login_button": "Prijava",
         "password": "Lozinka",
         "username": "Korisničko ime"
+    },
+    "drawer_labels": {
+        "harbours": "Luke",
+        "logout": "Odjava"
+    },
+    "errors": {
+        "login_unsuccessful": "Neispravno korisničko ime ili lozinka.",
+        "username_password_empty": "Korisničko ime i lozinka ne smiju biti prazni."
+    },
+    "languages": {
+        "croatian": "Hrvatski",
+        "english": "Engleski"
     }
 }

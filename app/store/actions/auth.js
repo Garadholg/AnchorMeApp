@@ -2,8 +2,9 @@ import apiUrl from '../../constants/connection';
 
 export const LOGIN = 'LOGIN';
 
-export const login = (data) => {
+export const login = reqData => {
     return async dispatch => {
+        
         const response = await fetch(apiUrl + 'login',
             {
                 method: 'POST',
@@ -11,16 +12,24 @@ export const login = (data) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: data.username,
-                    password: data.password
+                    username: reqData.username,
+                    password: reqData.password
                 })
             }
         );
 
-        const data = await response.json();
+        const respData = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.Message);
+            throw respData.Message;
         }
+
+        dispatch({
+            type: LOGIN,
+            response: respData
+        });
+
+        return respData.Successful;
+
     };
 }

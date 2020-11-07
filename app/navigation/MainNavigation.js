@@ -1,11 +1,13 @@
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import { createSwitchNavigator } from "react-navigation";
 
 import AuthNavigator from './AuthNavigation';
+import DrawerNavigator from './DrawerNavigation';
 
-const mainNavigator = createStackNavigator(
+const mainNavigator = createSwitchNavigator(
     {
-        Auth: AuthNavigator
+        Home: DrawerNavigator,
+        Auth: AuthNavigator,
     },
     {
         headerMode: "none"

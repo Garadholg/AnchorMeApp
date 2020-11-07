@@ -1,6 +1,5 @@
 import memoize from 'lodash.memoize';
 import i18n from 'i18n-js';
-import * as Localization from 'expo-localization';
 
 const DEFAULT_LANGUAGE = 'hr';
 

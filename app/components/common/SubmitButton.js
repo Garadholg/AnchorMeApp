@@ -1,13 +1,14 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import Colors from '../../constants/colors';
+import Colours from '../../constants/colours';
 
 const SubmitButton = props => {
     return (
         <TouchableOpacity 
             style={{ ...styles.button, ...props.style }}
-            activeOpacity={0.5} >
+            activeOpacity={0.5}
+            onPress={props.onPress} >
             <Text style={styles.text}>{props.text}</Text>
         </TouchableOpacity>
     );
@@ -19,12 +20,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 12,
         paddingVertical: 16,
         alignItems: "center",
-        backgroundColor: Colors.dark,
+        backgroundColor: Colours.dark,
         borderRadius: 7
     },
 
     text: {
-        color: Colors.white,
+        color: Colours.white,
         fontSize: 20
     }
 });

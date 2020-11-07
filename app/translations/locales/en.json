@@ -3,5 +3,17 @@
         "login_button": "Login",
         "password": "Password",
         "username": "Username"
+    },
+    "drawer_labels": {
+        "harbours": "Harbours",
+        "logout": "Logout"
+    },
+    "errors": {
+        "login_unsuccessful": "Wrong username or password.",
+        "username_password_empty": "Username and password must not be empty."
+    },
+    "languages": {
+        "croatian": "Croatian",
+        "english": "English"
     }
 }
