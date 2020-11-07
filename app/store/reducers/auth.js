@@ -1,4 +1,4 @@
-import { LOGIN } from '../actions/auth';
+import { LOGIN, LOGOUT } from '../actions/auth';
 
 const initialState = {
     loggedIn: false,
@@ -13,6 +13,8 @@ export default (state = initialState, action) => {
                 loggedIn: action.Successful,
                 user: action.LoggedUser
             };
+        case LOGOUT: 
+            return initialState;
         default:
             return state;
     }

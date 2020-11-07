@@ -4,6 +4,13 @@
         "password": "Password",
         "username": "Username"
     },
+    "dialog": {
+        "buttons": {
+            "cancel": "Cancel",
+            "confirm_logout": "Logout"
+        },
+        "logout": "Are you sure you want to log out?"
+    },
     "drawer_labels": {
         "harbours": "Harbours",
         "logout": "Logout"

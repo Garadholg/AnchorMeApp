@@ -1,6 +1,7 @@
 import apiUrl from '../../constants/connection';
 
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 
 export const login = reqData => {
     return async dispatch => {
@@ -31,5 +32,11 @@ export const login = reqData => {
 
         return respData.Successful;
 
+    };
+}
+
+export const logout = () => {
+    return {
+        type: LOGOUT
     };
 }

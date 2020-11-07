@@ -4,6 +4,13 @@
         "password": "Lozinka",
         "username": "Korisničko ime"
     },
+    "dialog": {
+        "buttons": {
+            "cancel": "Odustani",
+            "confirm_logout": "Odjavi se"
+        },
+        "logout": "Želite li se stvarno odjaviti?"
+    },
     "drawer_labels": {
         "harbours": "Luke",
         "logout": "Odjava"
