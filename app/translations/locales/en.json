@@ -11,9 +11,17 @@
         },
         "logout": "Are you sure you want to log out?"
     },
-    "drawer_labels": {
-        "harbours": "Harbours",
-        "logout": "Logout"
+    "navigation": {
+        "drawer_labels": {
+            "harbours": "Harbours",
+            "logout": "Logout",
+            "profile": "My profile",
+            "settings": "Settings"
+        },
+        "tab_labels": {
+            "list": "Harbours",
+            "map": "Map"
+        }
     },
     "errors": {
         "login_unsuccessful": "Wrong username or password.",

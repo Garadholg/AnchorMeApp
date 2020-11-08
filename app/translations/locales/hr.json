@@ -11,9 +11,17 @@
         },
         "logout": "Želite li se stvarno odjaviti?"
     },
-    "drawer_labels": {
-        "harbours": "Luke",
-        "logout": "Odjava"
+    "navigation": {
+        "drawer_labels": {
+            "harbours": "Luke",
+            "logout": "Odjava",
+            "profile": "Moj profil",
+            "settings": "Postavke"
+        },
+        "tab_labels": {
+            "list": "Luke",
+            "map": "Karta"
+        }
     },
     "errors": {
         "login_unsuccessful": "Neispravno korisničko ime ili lozinka.",

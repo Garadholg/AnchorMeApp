@@ -35,7 +35,7 @@ const DrawerMenu = props => {
                     <View style={styles.iconContainer}>
                         <Feather name="log-out" size={24} color={Colours.error} />
                     </View>
-                    <Text style={styles.label}>{t('drawer_labels.logout')}</Text>
+                    <Text style={styles.label}>{t('navigation.drawer_labels.logout')}</Text>
                 </View>
             </TouchableOpacity>
             
