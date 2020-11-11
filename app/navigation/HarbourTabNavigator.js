@@ -7,6 +7,9 @@ import HarboursListScreen from '../screens/home/HarboursListScreen';
 import MapScreen from '../screens/home/MapScreen';
 import Colours from '../constants/colours';
 
+import { initLocalization } from '../translations/Translations';
+initLocalization();
+
 const HarbourTabNavigator = createBottomTabNavigator(
     {
         HarbourList: {

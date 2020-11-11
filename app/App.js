@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
+  
   initLocalization();
 
   return (

@@ -9,6 +9,9 @@ import MyProfileScreen from '../screens/home/MyProfileScreen';
 import SettingsScreen from '../screens/home/SettingsScreen';
 import Colours from '../constants/colours';
 
+import { initLocalization } from '../translations/Translations';
+initLocalization();
+
 const DrawerNavigator = createDrawerNavigator(
     {
         Harbours: {
