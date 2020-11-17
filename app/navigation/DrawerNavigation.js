@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { LocalizedStrings as t } from '../translations/Translations';
 import DrawerMenu from '../components/drawer/DrawerMenu';
 import HarbourTabNavigator from './HarbourTabNavigator';
-import MyProfileScreen from '../screens/home/MyProfileScreen';
+import ProfileScreen from '../screens/home/ProfileScreen';
 import SettingsScreen from '../screens/home/SettingsScreen';
 import Colours from '../constants/colours';
 
@@ -22,7 +22,7 @@ const DrawerNavigator = createDrawerNavigator(
             }
         },
         Profile: {
-            screen: MyProfileScreen,
+            screen: ProfileScreen,
             navigationOptions: {
                 drawerLabel: t('navigation.drawer_labels.profile'),
                 drawerIcon: ({ tintColor }) => <Feather name="user" size={24} color={tintColor} />
