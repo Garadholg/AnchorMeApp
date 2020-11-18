@@ -2,6 +2,7 @@
     "authentication": {
         "login_button": "Prijava",
         "password": "Lozinka",
+        "remember_me": "Zapamti me",
         "username": "Korisničko ime"
     },
     "dialog": {

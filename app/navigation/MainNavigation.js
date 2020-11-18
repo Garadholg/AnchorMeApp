@@ -3,11 +3,13 @@ import { createSwitchNavigator } from "react-navigation";
 
 import AuthNavigator from './AuthNavigation';
 import DrawerNavigator from './DrawerNavigation';
+import SplashScreen from '../screens/splash/SplashScreen';
 
 const mainNavigator = createSwitchNavigator(
     {
-        Auth: AuthNavigator,
+        Splash: SplashScreen, 
         Home: DrawerNavigator,
+        Auth: AuthNavigator,
     },
     {
         headerMode: "none"

@@ -6,7 +6,6 @@ import AdminProfileScreen from '../profile/AdminProfileScreen';
 
 const ProfileScreen = props => {
     const user = useSelector(state => state.auth.user);
-    console.log(user);
 
     const Screen = user.Role == 1 ? <AdminProfileScreen /> : <UserProfileScreen />;
 

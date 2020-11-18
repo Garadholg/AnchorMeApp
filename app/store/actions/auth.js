@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import apiUrl from '../../constants/connection';
 
 export const LOGIN = 'LOGIN';
@@ -36,7 +38,15 @@ export const login = reqData => {
 }
 
 export const logout = () => {
-    return {
-        type: LOGOUT
-    };
+    return async dispatch => {
+        try {
+            await AsyncStorage.removeItem('@login');
+        } catch(e) {
+            // remove error
+        }
+
+        dispatch({
+            type: LOGOUT
+        });
+    }
 }

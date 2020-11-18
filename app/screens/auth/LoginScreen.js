@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
-import DropDownPicker from 'react-native-dropdown-picker';
+import CheckBox from '@react-native-community/checkbox';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+//import DropDownPicker from 'react-native-dropdown-picker';
 
 import { LocalizedStrings as t } from '../../translations/Translations';
 import { loginValidation } from '../../utils/validation';
@@ -13,17 +15,19 @@ import Colours from '../../constants/colours';
 import * as authActions from '../../store/actions/auth';
 
 const LoginScreen = props => {
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-    const [selectedLanguage, setSelectedLanguage] = useState("en");
+    const [toRemember, setToRemember] = useState(false);
     const [error, setError] = useState();
+    //const [isLoading, setIsLoading] = useState(false);
+    //const [selectedLanguage, setSelectedLanguage] = useState("en");
 
     const dispatch = useDispatch();
 
     const onLoginPressed = async () => {
         setError();
-        setIsLoading(true);
+        //ssetIsLoading(true);
 
         if (!loginValidation(username, password)) {
             setError(t('errors.username_password_empty'));
@@ -36,8 +40,12 @@ const LoginScreen = props => {
         };
 
         await dispatch(authActions.login(data))
-        .then((successful) => {
+        .then(async (successful) => {
             if (successful) {
+                if (toRemember) {
+                    await saveLoginToStorage(data);
+                }
+
                 props.navigation.navigate('Home');
             }
         })
@@ -45,6 +53,15 @@ const LoginScreen = props => {
             setError(t('errors.' + error))
         });
 
+    }
+
+    const saveLoginToStorage = async (data) => {
+        try {
+          const jsonData = JSON.stringify(data);
+          await AsyncStorage.setItem('@login', jsonData);
+        } catch (error) {
+          // saving error
+        }
     }
 
     return (
@@ -68,6 +85,15 @@ const LoginScreen = props => {
                     onChangeText={(value) => {setPassword(value)}}
                     secureTextEntry
                 />
+
+                <View style={styles.rememberMe}>
+                    <CheckBox
+                        value={toRemember}
+                        onValueChange={(newValue) => setToRemember(newValue)} 
+                        tintColors={{ true: Colours.dark }}
+                    />
+                    <Text style={styles.text}>{ t('authentication.remember_me') }</Text>
+                </View>
 
                 {error && <Text style={styles.error}>{error}</Text>}
 
@@ -117,9 +143,21 @@ const styles = StyleSheet.create({
         height: 300
     },
 
+    rememberMe: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        width: "80%"
+    },
+
+    text: {
+        fontSize: 16
+    },
+
     error: {
         color: Colours.error,
         fontSize: 16,
+        marginTop: 5,
     },
 
     button: {

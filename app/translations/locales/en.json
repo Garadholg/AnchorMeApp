@@ -2,6 +2,7 @@
     "authentication": {
         "login_button": "Login",
         "password": "Password",
+        "remember_me": "Remember me",
         "username": "Username"
     },
     "dialog": {
