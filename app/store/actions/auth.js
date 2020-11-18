@@ -27,7 +27,7 @@ export const login = reqData => {
 
         dispatch({
             type: LOGIN,
-            response: respData
+            data: respData
         });
 
         return respData.Successful;

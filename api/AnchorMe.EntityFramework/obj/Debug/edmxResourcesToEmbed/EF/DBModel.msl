@@ -4,6 +4,7 @@
     <EntitySetMapping Name="LoginCredentials">
       <EntityTypeMapping TypeName="AnchorMeModel.LoginCredentials">
         <MappingFragment StoreEntitySet="LoginCredentials">
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
           <ScalarProperty Name="IDLoginCredentials" ColumnName="IDLoginCredentials" />
           <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
           <ScalarProperty Name="Username" ColumnName="Username" />
@@ -14,12 +15,21 @@
     <EntitySetMapping Name="UserData">
       <EntityTypeMapping TypeName="AnchorMeModel.UserData">
         <MappingFragment StoreEntitySet="UserData">
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
           <ScalarProperty Name="IDUserData" ColumnName="IDUserData" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="AnchorMeModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="IDUserRole" ColumnName="IDUserRole" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

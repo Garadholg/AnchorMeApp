@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="AnchorMeModel.LoginCredentials" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="AnchorMeModel.UserData" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="AnchorMeModel.FK_LoginCredentials_UserData" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AnchorMeModel.UserRole" Width="1.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="AnchorMeModel.FK_LoginCredentials_UserRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

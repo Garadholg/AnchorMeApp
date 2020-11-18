@@ -9,8 +9,7 @@ const UserProfileScreen = props => {
 
     const userData = useSelector(state => state.auth.user);
 
-    const profilePicture = require("../../assets/cat_profile_picture.jpg");
-    //    userData.profilePicture == null ? require("../../assets/cat_profile_picture.jpg") : "";
+    const profilePicture = userData.ProfilePicture == null ? require("../../assets/cat_profile_picture.jpg") : { url: userData.profilePicture };
 
     return (
         <View style={styles.container}>
@@ -31,8 +30,9 @@ const UserProfileScreen = props => {
                     </View>
 
                     <View style={styles.usernameContainer}>
+
                         <View style={styles.username}>
-                            <Text style={styles.usernameText}>amaurov</Text>
+                            <Text style={styles.usernameText}>{userData.Username}</Text>
                             <MaterialCommunityIcons name="check-decagram" size={28} color={Colours.dark} style={styles.iconVerified} />
                         </View>
                     </View>

@@ -18,7 +18,9 @@ namespace AnchorMe.EntityFramework.EF
         public int UserDataID { get; set; }
         public string Username { get; set; }
         public string Pwd { get; set; }
+        public int UserRoleID { get; set; }
     
         public virtual UserData UserData { get; set; }
+        public virtual UserRole UserRole { get; set; }
     }
 }

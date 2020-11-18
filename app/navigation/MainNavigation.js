@@ -6,8 +6,8 @@ import DrawerNavigator from './DrawerNavigation';
 
 const mainNavigator = createSwitchNavigator(
     {
-        Home: DrawerNavigator,
         Auth: AuthNavigator,
+        Home: DrawerNavigator,
     },
     {
         headerMode: "none"

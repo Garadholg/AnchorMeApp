@@ -8,6 +8,7 @@
     <Property Name="UserDataID" Type="int" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="64" Nullable="false" />
     <Property Name="Pwd" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="UserRoleID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserData">
     <Key>
@@ -19,6 +20,14 @@
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="320" Nullable="false" />
     <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProfilePicture" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="IDUserRole" />
+    </Key>
+    <Property Name="IDUserRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <Association Name="FK_LoginCredentials_UserData">
     <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
@@ -32,11 +41,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LoginCredentials_UserRole">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="LoginCredentials" Type="Self.LoginCredentials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="IDUserRole" />
+      </Principal>
+      <Dependent Role="LoginCredentials">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="AnchorMeModelStoreContainer">
     <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_LoginCredentials_UserData" Association="Self.FK_LoginCredentials_UserData">
       <End Role="UserData" EntitySet="UserData" />
+      <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginCredentials_UserRole" Association="Self.FK_LoginCredentials_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
       <End Role="LoginCredentials" EntitySet="LoginCredentials" />
     </AssociationSet>
   </EntityContainer>

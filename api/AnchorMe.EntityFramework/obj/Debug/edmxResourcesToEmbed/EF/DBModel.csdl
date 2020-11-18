@@ -9,6 +9,8 @@
     <Property Name="Username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Pwd" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="UserData" Relationship="Self.FK_LoginCredentials_UserData" FromRole="LoginCredentials" ToRole="UserData" />
+    <Property Name="UserRoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserRole" Relationship="AnchorMeModel.FK_LoginCredentials_UserRole" FromRole="LoginCredentials" ToRole="UserRole" />
   </EntityType>
   <EntityType Name="UserData">
     <Key>
@@ -21,6 +23,7 @@
     <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="LoginCredentials" Relationship="Self.FK_LoginCredentials_UserData" FromRole="UserData" ToRole="LoginCredentials" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_LoginCredentials_UserData">
     <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
@@ -41,5 +44,30 @@
       <End Role="UserData" EntitySet="UserData" />
       <End Role="LoginCredentials" EntitySet="LoginCredentials" />
     </AssociationSet>
+    <EntitySet Name="UserRole" EntityType="AnchorMeModel.UserRole" />
+    <AssociationSet Name="FK_LoginCredentials_UserRole" Association="AnchorMeModel.FK_LoginCredentials_UserRole">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="IDUserRole" />
+    </Key>
+    <Property Name="IDUserRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LoginCredentials" Relationship="AnchorMeModel.FK_LoginCredentials_UserRole" FromRole="UserRole" ToRole="LoginCredentials" />
+  </EntityType>
+  <Association Name="FK_LoginCredentials_UserRole">
+    <End Type="AnchorMeModel.UserRole" Role="UserRole" Multiplicity="1" />
+    <End Type="AnchorMeModel.LoginCredentials" Role="LoginCredentials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="IDUserRole" />
+      </Principal>
+      <Dependent Role="LoginCredentials">
+        <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AnchorMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AnchorMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LoginCredentials">
           <Key>
             <PropertyRef Name="IDLoginCredentials" />
@@ -13,6 +13,7 @@
           <Property Name="UserDataID" Type="int" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="Pwd" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="UserRoleID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UserData">
           <Key>
@@ -24,6 +25,14 @@
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="320" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProfilePicture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="IDUserRole" />
+          </Key>
+          <Property Name="IDUserRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_LoginCredentials_UserData">
           <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
@@ -37,16 +46,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LoginCredentials_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="LoginCredentials" Type="Self.LoginCredentials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="IDUserRole" />
+            </Principal>
+            <Dependent Role="LoginCredentials">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AnchorMeModelStoreContainer">
           <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_LoginCredentials_UserData" Association="Self.FK_LoginCredentials_UserData">
             <End Role="UserData" EntitySet="UserData" />
             <End Role="LoginCredentials" EntitySet="LoginCredentials" />
           </AssociationSet>
+          <AssociationSet Name="FK_LoginCredentials_UserRole" Association="Self.FK_LoginCredentials_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AnchorMeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -59,6 +84,8 @@
           <Property Name="Username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pwd" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserData" Relationship="Self.FK_LoginCredentials_UserData" FromRole="LoginCredentials" ToRole="UserData" />
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserRole" Relationship="AnchorMeModel.FK_LoginCredentials_UserRole" FromRole="LoginCredentials" ToRole="UserRole" />
         </EntityType>
         <EntityType Name="UserData">
           <Key>
@@ -71,6 +98,7 @@
           <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LoginCredentials" Relationship="Self.FK_LoginCredentials_UserData" FromRole="UserData" ToRole="LoginCredentials" />
+          <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_LoginCredentials_UserData">
           <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
@@ -91,7 +119,32 @@
             <End Role="UserData" EntitySet="UserData" />
             <End Role="LoginCredentials" EntitySet="LoginCredentials" />
           </AssociationSet>
+          <EntitySet Name="UserRole" EntityType="AnchorMeModel.UserRole" />
+          <AssociationSet Name="FK_LoginCredentials_UserRole" Association="AnchorMeModel.FK_LoginCredentials_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="IDUserRole" />
+          </Key>
+          <Property Name="IDUserRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoginCredentials" Relationship="AnchorMeModel.FK_LoginCredentials_UserRole" FromRole="UserRole" ToRole="LoginCredentials" />
+        </EntityType>
+        <Association Name="FK_LoginCredentials_UserRole">
+          <End Type="AnchorMeModel.UserRole" Role="UserRole" Multiplicity="1" />
+          <End Type="AnchorMeModel.LoginCredentials" Role="LoginCredentials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="IDUserRole" />
+            </Principal>
+            <Dependent Role="LoginCredentials">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -101,6 +154,7 @@
           <EntitySetMapping Name="LoginCredentials">
             <EntityTypeMapping TypeName="AnchorMeModel.LoginCredentials">
               <MappingFragment StoreEntitySet="LoginCredentials">
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
                 <ScalarProperty Name="IDLoginCredentials" ColumnName="IDLoginCredentials" />
                 <ScalarProperty Name="UserDataID" ColumnName="UserDataID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -111,12 +165,21 @@
           <EntitySetMapping Name="UserData">
             <EntityTypeMapping TypeName="AnchorMeModel.UserData">
               <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
                 <ScalarProperty Name="IDUserData" ColumnName="IDUserData" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="AnchorMeModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IDUserRole" ColumnName="IDUserRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

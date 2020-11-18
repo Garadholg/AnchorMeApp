@@ -10,8 +10,8 @@ export default (state = initialState, action) => {
         case LOGIN:
             return {
                 ...state,
-                loggedIn: action.Successful,
-                user: action.LoggedUser
+                loggedIn: action.data.Successful,
+                user: action.data.LoggedUser
             };
         case LOGOUT: 
             return initialState;

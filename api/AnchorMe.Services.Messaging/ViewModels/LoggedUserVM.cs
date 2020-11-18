@@ -14,6 +14,10 @@ namespace AnchorMe.Services.Messaging.ViewModels
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string ProfilePicture { get; set; }
+
+        public string Username { get; set; }
+        public int Role { get; set; }
 
         public LoggedUserVM(UserData user)
         {
@@ -22,6 +26,9 @@ namespace AnchorMe.Services.Messaging.ViewModels
             LastName = user.LastName;
             Email = user.Email;
             Phone = user.Phone;
+            ProfilePicture = ProfilePicture;
+            Username = user.LoginCredentials.First().Username;
+            Role = user.LoginCredentials.First().UserRole.IDUserRole;
         }
     }
 }

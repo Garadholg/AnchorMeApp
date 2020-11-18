@@ -74,6 +74,9 @@
     <Compile Include="EF\UserData.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\UserRole.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Implementations\UserDataRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserDataRepository.cs" />

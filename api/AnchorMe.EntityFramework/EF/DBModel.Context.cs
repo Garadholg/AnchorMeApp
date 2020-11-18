@@ -27,5 +27,6 @@ namespace AnchorMe.EntityFramework.EF
     
         public virtual DbSet<LoginCredentials> LoginCredentials { get; set; }
         public virtual DbSet<UserData> UserData { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
     }
 }

@@ -9,3 +9,4 @@ D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CopyComplete
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.pdb
+D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csprojAssemblyReference.cache
