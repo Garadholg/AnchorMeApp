@@ -17,7 +17,6 @@ const SplashScreen = props => {
                         props.navigation.navigate('Auth');
                     } else {
                         creds = JSON.parse(data);
-                        console.log(creds);
                         await dispatch(authActions.login(creds))
                         .then(() => {
                             props.navigation.navigate('Home');

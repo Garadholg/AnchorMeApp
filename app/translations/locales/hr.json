@@ -12,6 +12,10 @@
         },
         "logout": "Želite li se stvarno odjaviti?"
     },
+    "harbour_card": {
+        "no_picture": "Nema slike",
+        "available": "Dostupno vezova"
+    },
     "navigation": {
         "drawer_labels": {
             "harbours": "Luke",

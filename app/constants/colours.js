@@ -4,5 +4,6 @@ export default Colours = {
     dark: "#064273",
     white: "#ffffff",
     error: "#c20000",
+    success: "#1abd1d",
     disabled: "#cbcbcb"
 }

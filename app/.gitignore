@@ -9,5 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 
+constants/connection.js
+
 # macOS
 .DS_Store

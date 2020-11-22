@@ -12,6 +12,10 @@
         },
         "logout": "Are you sure you want to log out?"
     },
+    "harbour_card": {
+        "no_picture": "No Photo",
+        "available": "Available berths"
+    },
     "navigation": {
         "drawer_labels": {
             "harbours": "Harbours",
