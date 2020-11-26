@@ -24,7 +24,6 @@ const SplashScreen = props => {
                     }
                 });
         } catch(e) {
-            console.log(e);
             // error reading value
         }
     }

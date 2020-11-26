@@ -33,5 +33,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="AnchorMeModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="IDCity" ColumnName="IDCity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Country">
+      <EntityTypeMapping TypeName="AnchorMeModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="IDCountry" ColumnName="IDCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Harbour">
+      <EntityTypeMapping TypeName="AnchorMeModel.Harbour">
+        <MappingFragment StoreEntitySet="Harbour">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="BerthsQuantity" ColumnName="BerthsQuantity" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="HarbourName" ColumnName="HarbourName" />
+          <ScalarProperty Name="IDHarbour" ColumnName="IDHarbour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

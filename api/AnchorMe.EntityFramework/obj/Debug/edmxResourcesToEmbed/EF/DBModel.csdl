@@ -49,6 +49,17 @@
       <End Role="UserRole" EntitySet="UserRole" />
       <End Role="LoginCredentials" EntitySet="LoginCredentials" />
     </AssociationSet>
+    <EntitySet Name="City" EntityType="AnchorMeModel.City" />
+    <EntitySet Name="Country" EntityType="AnchorMeModel.Country" />
+    <EntitySet Name="Harbour" EntityType="AnchorMeModel.Harbour" />
+    <AssociationSet Name="FK_City_Country" Association="AnchorMeModel.FK_City_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Harbour_City" Association="AnchorMeModel.FK_Harbour_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Harbour" EntitySet="Harbour" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserRole">
     <Key>
@@ -67,6 +78,61 @@
       </Principal>
       <Dependent Role="LoginCredentials">
         <PropertyRef Name="UserRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="IDCity" />
+    </Key>
+    <Property Name="IDCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="AnchorMeModel.FK_City_Country" FromRole="City" ToRole="Country" />
+    <NavigationProperty Name="Harbour" Relationship="AnchorMeModel.FK_Harbour_City" FromRole="City" ToRole="Harbour" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="IDCountry" />
+    </Key>
+    <Property Name="IDCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="City" Relationship="AnchorMeModel.FK_City_Country" FromRole="Country" ToRole="City" />
+  </EntityType>
+  <EntityType Name="Harbour">
+    <Key>
+      <PropertyRef Name="IDHarbour" />
+    </Key>
+    <Property Name="IDHarbour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HarbourName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CityID" Type="Int32" Nullable="false" />
+    <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
+    <Property Name="BerthsQuantity" Type="Int32" Nullable="false" />
+    <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="City" Relationship="AnchorMeModel.FK_Harbour_City" FromRole="Harbour" ToRole="City" />
+  </EntityType>
+  <Association Name="FK_City_Country">
+    <End Type="AnchorMeModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="AnchorMeModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="IDCountry" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Harbour_City">
+    <End Type="AnchorMeModel.City" Role="City" Multiplicity="1" />
+    <End Type="AnchorMeModel.Harbour" Role="Harbour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="IDCity" />
+      </Principal>
+      <Dependent Role="Harbour">
+        <PropertyRef Name="CityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

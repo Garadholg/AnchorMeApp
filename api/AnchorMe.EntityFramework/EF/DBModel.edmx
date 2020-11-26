@@ -5,6 +5,33 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AnchorMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="IDCity" />
+          </Key>
+          <Property Name="IDCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="IDCountry" />
+          </Key>
+          <Property Name="IDCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="300" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Harbour">
+          <Key>
+            <PropertyRef Name="IDHarbour" />
+          </Key>
+          <Property Name="IDHarbour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HarbourName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="BerthsQuantity" Type="int" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="LoginCredentials">
           <Key>
             <PropertyRef Name="IDLoginCredentials" />
@@ -34,6 +61,30 @@
           <Property Name="IDUserRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <Association Name="FK_City_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="IDCountry" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Harbour_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Harbour" Type="Self.Harbour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IDCity" />
+            </Principal>
+            <Dependent Role="Harbour">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_LoginCredentials_UserData">
           <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
           <End Role="LoginCredentials" Type="Self.LoginCredentials" Multiplicity="*" />
@@ -59,9 +110,20 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="AnchorMeModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Harbour" EntityType="Self.Harbour" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Harbour_City" Association="Self.FK_Harbour_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Harbour" EntitySet="Harbour" />
+          </AssociationSet>
           <AssociationSet Name="FK_LoginCredentials_UserData" Association="Self.FK_LoginCredentials_UserData">
             <End Role="UserData" EntitySet="UserData" />
             <End Role="LoginCredentials" EntitySet="LoginCredentials" />
@@ -124,6 +186,17 @@
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="LoginCredentials" EntitySet="LoginCredentials" />
           </AssociationSet>
+          <EntitySet Name="City" EntityType="AnchorMeModel.City" />
+          <EntitySet Name="Country" EntityType="AnchorMeModel.Country" />
+          <EntitySet Name="Harbour" EntityType="AnchorMeModel.Harbour" />
+          <AssociationSet Name="FK_City_Country" Association="AnchorMeModel.FK_City_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Harbour_City" Association="AnchorMeModel.FK_Harbour_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Harbour" EntitySet="Harbour" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="UserRole">
           <Key>
@@ -142,6 +215,61 @@
             </Principal>
             <Dependent Role="LoginCredentials">
               <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="IDCity" />
+          </Key>
+          <Property Name="IDCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="AnchorMeModel.FK_City_Country" FromRole="City" ToRole="Country" />
+          <NavigationProperty Name="Harbour" Relationship="AnchorMeModel.FK_Harbour_City" FromRole="City" ToRole="Harbour" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="IDCountry" />
+          </Key>
+          <Property Name="IDCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="AnchorMeModel.FK_City_Country" FromRole="Country" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Harbour">
+          <Key>
+            <PropertyRef Name="IDHarbour" />
+          </Key>
+          <Property Name="IDHarbour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HarbourName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
+          <Property Name="Longitude" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
+          <Property Name="BerthsQuantity" Type="Int32" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City" Relationship="AnchorMeModel.FK_Harbour_City" FromRole="Harbour" ToRole="City" />
+        </EntityType>
+        <Association Name="FK_City_Country">
+          <End Type="AnchorMeModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="AnchorMeModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="IDCountry" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Harbour_City">
+          <End Type="AnchorMeModel.City" Role="City" Multiplicity="1" />
+          <End Type="AnchorMeModel.Harbour" Role="Harbour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="IDCity" />
+            </Principal>
+            <Dependent Role="Harbour">
+              <PropertyRef Name="CityID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -180,6 +308,36 @@
               <MappingFragment StoreEntitySet="UserRole">
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="IDUserRole" ColumnName="IDUserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="AnchorMeModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="IDCity" ColumnName="IDCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="AnchorMeModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="IDCountry" ColumnName="IDCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Harbour">
+            <EntityTypeMapping TypeName="AnchorMeModel.Harbour">
+              <MappingFragment StoreEntitySet="Harbour">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="BerthsQuantity" ColumnName="BerthsQuantity" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="HarbourName" ColumnName="HarbourName" />
+                <ScalarProperty Name="IDHarbour" ColumnName="IDHarbour" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

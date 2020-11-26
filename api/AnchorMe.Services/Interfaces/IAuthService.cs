@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnchorMe.Services.Interfaces
 {
-    interface IAuthService
+    public interface IAuthService
     {
         LoginResponse LoginUser(LoginRequest request);
     }

@@ -10,6 +10,11 @@
         <AssociationConnector Association="AnchorMeModel.FK_LoginCredentials_UserData" ManuallyRouted="false" />
         <EntityTypeShape EntityType="AnchorMeModel.UserRole" Width="1.5" PointX="0.75" PointY="4.875" />
         <AssociationConnector Association="AnchorMeModel.FK_LoginCredentials_UserRole" />
+        <EntityTypeShape EntityType="AnchorMeModel.City" Width="1.5" PointX="5.625" PointY="4.875" />
+        <EntityTypeShape EntityType="AnchorMeModel.Country" Width="1.5" PointX="3.375" PointY="5" />
+        <EntityTypeShape EntityType="AnchorMeModel.Harbour" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="AnchorMeModel.FK_City_Country" />
+        <AssociationConnector Association="AnchorMeModel.FK_Harbour_City" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

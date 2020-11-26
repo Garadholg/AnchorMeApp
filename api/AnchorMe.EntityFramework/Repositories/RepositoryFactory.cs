@@ -11,5 +11,6 @@ namespace AnchorMe.EntityFramework.Repositories
     public static class RepositoryFactory
     {
         public static IUserDataRepository GetUserDataRepository() => new UserDataRepository();
+        public static IHarbourRepository GetHarbourRepository() => new HarbourRepository();
     }
 }

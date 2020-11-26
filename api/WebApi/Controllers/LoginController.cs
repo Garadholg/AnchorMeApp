@@ -1,4 +1,5 @@
 ﻿using AnchorMe.Services.Auth;
+using AnchorMe.Services.Interfaces;
 using AnchorMe.Services.Messaging.Login;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace WebApi.Controllers
 {
     public class LoginController : ApiController
     {
-        private AuthService authService = new AuthService();
+        private IAuthService authService = new AuthService();
 
         [HttpPost]
         [Route("api/login")]

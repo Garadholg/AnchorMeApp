@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import apiUrl from '../../constants/connection';
+import { API_URL as apiUrl} from '../../constants/connection';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';

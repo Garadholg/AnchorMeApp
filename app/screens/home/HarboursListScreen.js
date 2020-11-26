@@ -1,25 +1,33 @@
-import React from 'react';
-import { FlatList, View, StyleSheet, SafeAreaView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, SafeAreaView } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import HarbourCard from '../../components/harbours/HarbourCard';
+import * as harboursActions from '../../store/actions/harbours';
 import Colours from '../../constants/colours';
-
-const data = [1, 2, 3, 4, 5];
 
 const renderHarbourCard = (item) => {
     return (
-        <HarbourCard />
+        <HarbourCard harbour={item.item} />
     );
 };
 
 const HarboursScreen = props => {
+    
+    const harbours = useSelector(state => state.harbours.harbours);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(harboursActions.getAllHarbours());
+    }, [dispatch]);
 
     return (
         <SafeAreaView style={styles.container}>
             <FlatList 
                 style={styles.scrollView} 
-                data={data}
-                keyExtractor={(item) => item.toString()}
+                data={harbours}
+                keyExtractor={(item) => item.ID.toString()}
                 renderItem={(item) => renderHarbourCard(item)}
                 showsVerticalScrollIndicator={false}
             />

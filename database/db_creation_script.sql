@@ -40,4 +40,34 @@ create table LoginCredentials
 	CONSTRAINT FK_LoginCredentials_UserRole FOREIGN KEY (UserRoleID)
 		REFERENCES UserRole(IDUserRole),
 )
+
+create table Country
+(
+	IDCountry int primary key identity,
+	CountryName nvarchar(300) not null
+)
+
+create table City
+(
+	IDCity int primary key identity,
+	CityName nvarchar(150) not null,
+	CountryID int not null,
+
+	CONSTRAINT FK_City_Country FOREIGN KEY (CountryID)
+		REFERENCES Country(IDCountry),
+)
+
+create table Harbour
+(
+	IDHarbour int primary key identity,
+	HarbourName nvarchar(500) not null,
+	CityID int not null,
+	Latitude decimal(9,6) not null,
+	Longitude decimal(9,6) not null,
+	BerthsQuantity int not null,
+	Picture nvarchar(max),
+
+	CONSTRAINT FK_Harbour_City FOREIGN KEY (CityID)
+		REFERENCES City(IDCity),
+)
 go

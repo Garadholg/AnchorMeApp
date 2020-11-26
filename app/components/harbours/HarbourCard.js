@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Feather, SimpleLineIcons } from '@expo/vector-icons';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
+import NoPictureView from '../common/NoPictureView';
 import { LocalizedStrings as t } from '../../translations/Translations';
 import Colours from '../../constants/colours';
 
@@ -10,20 +11,19 @@ const HarbourCard = props => {
     return (
         <TouchableOpacity style={{...styles.card, ...props.style }} activeOpacity={0.8}>
             <View style={styles.cardContent}>
-                <View style={styles.pictureContainer}>
-                    <Feather name="camera-off" size={24} color="#828282" />
-                    <Text style={styles.noPictureText}>{t('harbour_card.no_picture')}</Text>
-                </View>
+                { props.harbour.Picture == null &&
+                    <NoPictureView />
+                }
                 <View style={styles.harbourData}>
                     <View style={styles.infoContainer}>
-                        <Text style={styles.name}>Ime luke</Text>
+                        <Text style={styles.name}>{ props.harbour.Name }</Text>
                         <View style={styles.location}>
                             <SimpleLineIcons name="location-pin" size={16} color={Colours.dark} />
-                            <Text style={styles.locationText}>Grad, Drzava</Text>
+                            <Text style={styles.locationText}>{ props.harbour.City }, { props.harbour.Country }</Text>
                         </View>
                     </View>
                     <View style={styles.availContainer}>
-                        <Text style={styles.availText}>Availabile: 38</Text>
+                        <Text style={styles.availText}>{t('harbour_card.available')}: { props.harbour.BerthsQuantity }</Text>
                     </View>
                 </View>
             </View>

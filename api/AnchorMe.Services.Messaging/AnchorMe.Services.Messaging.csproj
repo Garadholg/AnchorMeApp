@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\Login.cs" />
+    <Compile Include="Harbours\GetAllHarbours.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HarbourVM.cs" />
     <Compile Include="ViewModels\LoggedUserVM.cs" />
   </ItemGroup>
   <ItemGroup>
