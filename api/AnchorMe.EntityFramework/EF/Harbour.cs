@@ -21,6 +21,9 @@ namespace AnchorMe.EntityFramework.EF
         public decimal Longitude { get; set; }
         public int BerthsQuantity { get; set; }
         public string Picture { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string Details { get; set; }
     
         public virtual City City { get; set; }
     }

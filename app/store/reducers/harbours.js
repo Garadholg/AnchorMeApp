@@ -1,7 +1,8 @@
-import { GET_HARBOURS_ALL } from '../actions/harbours';
+import { GET_HARBOURS_ALL, SET_SELECTED_HARBOUR } from '../actions/harbours';
 
 const initialState = {
-    harbours: []
+    harbours: [],
+    selectedHarbour: null
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 harbours: action.data,
+            };
+        case SET_SELECTED_HARBOUR:
+            return {
+                ...state,
+                selectedHarbour: action.data
             };
         default:
             return state;

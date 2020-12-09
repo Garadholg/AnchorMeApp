@@ -19,7 +19,6 @@ const MapScreen = props => {
     const harbours = useSelector(state => state.harbours.harbours); 
 
     const renderMarkers = () => {   
-        console.log('Markers rerendered');
         return harbours.map((item) => 
             <Marker
                 key={item.ID} 

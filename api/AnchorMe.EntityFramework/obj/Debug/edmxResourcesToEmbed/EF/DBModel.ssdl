@@ -22,9 +22,12 @@
     <Property Name="IDHarbour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="HarbourName" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
     <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
     <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" Nullable="false" />
     <Property Name="BerthsQuantity" Type="int" Nullable="false" />
+    <Property Name="Details" Type="nvarchar(max)" />
     <Property Name="Picture" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LoginCredentials">

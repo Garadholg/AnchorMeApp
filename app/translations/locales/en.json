@@ -5,6 +5,7 @@
         "remember_me": "Remember me",
         "username": "Username"
     },
+    "date_format": "DD/MM/YYYY",
     "dialog": {
         "buttons": {
             "cancel": "Cancel",
@@ -15,6 +16,17 @@
     "harbour_card": {
         "no_picture": "No Photo",
         "available": "Available berths"
+    },
+    "harbour_details": {
+        "available": "Available berths",
+        "details": "Details",
+        "reserve": "Make reservation"
+    },
+    "harbour_reservation": {
+        "notes": "Additional notes",
+        "continue": "Continue",
+        "end_date": "End date",
+        "start_date": "Start date"
     },
     "navigation": {
         "drawer_labels": {

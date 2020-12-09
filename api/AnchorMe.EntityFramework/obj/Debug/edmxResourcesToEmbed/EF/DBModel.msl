@@ -53,6 +53,9 @@
     <EntitySetMapping Name="Harbour">
       <EntityTypeMapping TypeName="AnchorMeModel.Harbour">
         <MappingFragment StoreEntitySet="Harbour">
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="Picture" ColumnName="Picture" />
           <ScalarProperty Name="BerthsQuantity" ColumnName="BerthsQuantity" />
           <ScalarProperty Name="Longitude" ColumnName="Longitude" />

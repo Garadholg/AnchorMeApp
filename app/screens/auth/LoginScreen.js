@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//import DropDownPicker from 'react-native-dropdown-picker';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 import { LocalizedStrings as t } from '../../translations/Translations';
 import { loginValidation } from '../../utils/validation';
 import FloatingLabelInput from '../../components/common/FloatingLabelInput';
 import DismissKeyboardView from '../../components/common/DismissKeyboardView';
-import SubmitButton from '../../components/common/SubmitButton';
+import Button from '../../components/common/Button';
 import Colours from '../../constants/colours';
 
 import * as authActions from '../../store/actions/auth';
@@ -20,14 +20,11 @@ const LoginScreen = props => {
     const [password, setPassword] = useState("");
     const [toRemember, setToRemember] = useState(false);
     const [error, setError] = useState();
-    //const [isLoading, setIsLoading] = useState(false);
-    //const [selectedLanguage, setSelectedLanguage] = useState("en");
 
     const dispatch = useDispatch();
 
     const onLoginPressed = async () => {
         setError();
-        //ssetIsLoading(true);
 
         if (!loginValidation(username, password)) {
             setError(t('errors.username_password_empty'));
@@ -97,28 +94,11 @@ const LoginScreen = props => {
 
                 {error && <Text style={styles.error}>{error}</Text>}
 
-                <SubmitButton 
+                <Button 
                     text={t('authentication.login_button')}
                     style={styles.button}
                     onPress={onLoginPressed}
                 />
-
-                {/* <View>
-                    <DropDownPicker
-                        items ={[
-                            {label: t('languages.croatian'), value: 'hr'},
-                            {label: t('languages.english'), value: 'en'}
-                        ]}
-                        defaultValue={selectedLanguage}
-                        containerStyle={{height: 40, width: '80%'}}
-                        style={{backgroundColor: '#fafafa', }}
-                        itemStyle={{
-                            justifyContent: 'flex-start'
-                        }}
-                        dropDownStyle={{backgroundColor: '#fafafa'}}
-                        onChangeItem={item => setSelectedLanguage(item)}
-                    />
-                </View> */}
             </View>
         </DismissKeyboardView>
     );
@@ -129,6 +109,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        paddingTop: getStatusBarHeight(),
         backgroundColor: Colours.background
     },
 

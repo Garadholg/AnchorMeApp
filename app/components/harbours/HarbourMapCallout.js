@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
 
     picture: {
         height: 70,
-        width: 70
+        width: 70,
+        marginRight: 10
     },
 
     npvText: {

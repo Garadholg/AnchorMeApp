@@ -5,6 +5,7 @@
         "remember_me": "Zapamti me",
         "username": "Korisničko ime"
     },
+    "date_format": "DD.MM.YYYY",
     "dialog": {
         "buttons": {
             "cancel": "Odustani",
@@ -15,6 +16,17 @@
     "harbour_card": {
         "no_picture": "Nema slike",
         "available": "Dostupno vezova"
+    },
+    "harbour_details": {
+        "available": "Dostupno vezova",
+        "details": "Detalji",
+        "reserve": "Rezerviraj"
+    },
+    "harbour_reservation": {
+        "notes": "Dodatne napomene",
+        "continue": "Nastavi",
+        "end_date": "Datum završetka",
+        "start_date": "Datum početka"
     },
     "navigation": {
         "drawer_labels": {

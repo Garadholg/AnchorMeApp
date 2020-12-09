@@ -9,10 +9,13 @@ import Colours from '../../constants/colours';
 const HarbourCard = props => {
 
     return (
-        <TouchableOpacity style={{...styles.card, ...props.style }} activeOpacity={0.8}>
+        <TouchableOpacity 
+            style={{...styles.card, ...props.style }} 
+            activeOpacity={0.8}
+            onPress={() => props.onPress(props.harbour.ID)} >
             <View style={styles.cardContent}>
                 { props.harbour.Picture == null &&
-                    <NoPictureView />
+                    <NoPictureView style={styles.npv} />
                 }
                 <View style={styles.harbourData}>
                     <View style={styles.infoContainer}>
@@ -53,14 +56,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
 
-    pictureContainer: {
-        height: 100,
-        width: 100,
-        alignItems:"center",
-        justifyContent: "center",
-        marginRight: 10,
-        backgroundColor: Colours.disabled
-    },
+    npv: {
+        marginRight: 10
+    }, 
 
     noPictureText: {
         color: "#828282",

@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
         width: 100,
         alignItems:"center",
         justifyContent: "center",
-        marginRight: 10,
         backgroundColor: Colours.disabled
     },
 

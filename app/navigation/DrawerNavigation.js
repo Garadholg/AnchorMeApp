@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { LocalizedStrings as t } from '../translations/Translations';
 import DrawerMenu from '../components/drawer/DrawerMenu';
 import HarbourTabNavigator from './HarbourTabNavigator';
-import ProfileScreen from '../screens/home/ProfileScreen';
+import ProfileScreen from '../screens/profile/ProfileScreen';
 import SettingsScreen from '../screens/home/SettingsScreen';
 import Colours from '../constants/colours';
 

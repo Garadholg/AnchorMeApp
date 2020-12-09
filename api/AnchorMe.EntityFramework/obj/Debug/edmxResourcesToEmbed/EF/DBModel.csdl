@@ -111,6 +111,9 @@
     <Property Name="BerthsQuantity" Type="Int32" Nullable="false" />
     <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="City" Relationship="AnchorMeModel.FK_Harbour_City" FromRole="Harbour" ToRole="City" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_City_Country">
     <End Type="AnchorMeModel.Country" Role="Country" Multiplicity="1" />

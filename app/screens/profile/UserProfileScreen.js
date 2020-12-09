@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image, ScrollView, Text, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Colours from '../../constants/colours';
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: "15%",
-        paddingTop: "20%",
+        paddingTop: getStatusBarHeight() + 50,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: Colours.background

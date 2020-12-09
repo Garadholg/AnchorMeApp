@@ -62,9 +62,12 @@ create table Harbour
 	IDHarbour int primary key identity,
 	HarbourName nvarchar(500) not null,
 	CityID int not null,
+	PhoneNumber nvarchar(50),
+	Email nvarchar(256),
 	Latitude decimal(9,6) not null,
 	Longitude decimal(9,6) not null,
 	BerthsQuantity int not null,
+	Details nvarchar(max),
 	Picture nvarchar(max),
 
 	CONSTRAINT FK_Harbour_City FOREIGN KEY (CityID)
