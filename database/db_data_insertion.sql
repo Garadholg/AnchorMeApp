@@ -42,3 +42,12 @@ values ('Luèica "Delfin"', 1, '+911111111', 'delfin.pula@mail.hr', 44.844893, 13
 	   ('Zadar Pitter Yachting', 5, '+977777777', 'zadar.pitter@mail.hr', 44.119648, 15.229551, 124, '-', null),
 	   ('ACI Marina Dubrovnik', 7, '+988888888', 'aci.dubrovnik@mail.hr', 42.671067, 18.125734, 96, 'Integer rutrum hendrerit ex, ac congue augue mollis sed. Pellentesque tempor tincidunt massa, quis porttitor orci iaculis ut. Vivamus a sagittis augue. Sed malesuada quam sed ipsum consectetur imperdiet. Proin interdum tortor non orci pellentesque, nec sollicitudin urna convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia facilisis erat sagittis convallis.', null)
 go
+
+insert into ReservationStatus
+values ('Pending'),
+	   ('Accepted'),
+	   ('Active'),
+	   ('Completed'),
+	   ('Declined'),
+	   ('Cancelled')
+go

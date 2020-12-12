@@ -23,10 +23,15 @@
         "reserve": "Make reservation"
     },
     "harbour_reservation": {
-        "notes": "Additional notes",
         "continue": "Continue",
         "end_date": "End date",
-        "start_date": "Start date"
+        "harbour_name": "Harbour name",
+        "harbour_location": "Location",
+        "notes": "Additional notes",
+        "request_reservation": "Request reservation",
+        "reservation_period": "Reservation period",
+        "start_date": "Start date",
+        "summary": "Summary"
     },
     "navigation": {
         "drawer_labels": {

@@ -27,7 +27,7 @@ export const getAllHarbours = () => {
     };
 };
 
-export const setSelectedHarbour = (id) => {
+export const setSelectedHarbour = id => {
     return async (dispatch, getState) => {
         var harbour = getState().harbours.harbours.find(x => x.ID == id);
 

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnchorMe.Services.Auth
+namespace AnchorMe.Services.Implementations
 {
     public class AuthService : IAuthService
     {

@@ -1,4 +1,5 @@
 ﻿using AnchorMe.EntityFramework.EF;
+using AnchorMe.Services.Messaging.Base;
 using AnchorMe.Services.Messaging.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AnchorMe.Services.Messaging.Login
 {
-    public class LoginRequest
+    public class LoginRequest : BaseRequest
     {
         public string Username { get; set; }
 
@@ -16,13 +17,9 @@ namespace AnchorMe.Services.Messaging.Login
 
     }
 
-    public class LoginResponse
+    public class LoginResponse : BaseResponse
     {
         public LoggedUserVM LoggedUser { get; set; }
-
-        public bool Successful { get; set; }
-
-        public string Message { get; set; }
 
     }
 }

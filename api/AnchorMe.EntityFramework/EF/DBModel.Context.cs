@@ -31,5 +31,7 @@ namespace AnchorMe.EntityFramework.EF
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Country> Country { get; set; }
         public virtual DbSet<Harbour> Harbour { get; set; }
+        public virtual DbSet<HarbourReservation> HarbourReservation { get; set; }
+        public virtual DbSet<ReservationStatus> ReservationStatus { get; set; }
     }
 }

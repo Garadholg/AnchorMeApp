@@ -77,7 +77,13 @@
     <Compile Include="EF\Harbour.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\HarbourReservation.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\LoginCredentials.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ReservationStatus.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\UserData.cs">
@@ -88,8 +94,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Implementations\HarbourRepository.cs" />
+    <Compile Include="Repositories\Implementations\HarbourReservationRepository.cs" />
     <Compile Include="Repositories\Implementations\UserDataRepository.cs" />
     <Compile Include="Repositories\Interfaces\IHarbourRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHarbourReservationRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserDataRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
   </ItemGroup>

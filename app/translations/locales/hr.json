@@ -23,10 +23,15 @@
         "reserve": "Rezerviraj"
     },
     "harbour_reservation": {
-        "notes": "Dodatne napomene",
         "continue": "Nastavi",
         "end_date": "Datum završetka",
-        "start_date": "Datum početka"
+        "harbour_name": "Naziv luke",
+        "harbour_location": "Lokacija",
+        "notes": "Dodatne napomene",
+        "request_reservation": "Zatraži rezervaciju",
+        "reservation_period": "Razdoblje rezervacije",
+        "start_date": "Datum početka",
+        "summary": "Pregled"
     },
     "navigation": {
         "drawer_labels": {

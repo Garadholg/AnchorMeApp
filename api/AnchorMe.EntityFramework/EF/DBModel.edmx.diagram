@@ -15,6 +15,11 @@
         <EntityTypeShape EntityType="AnchorMeModel.Harbour" Width="1.5" PointX="5.375" PointY="0.75" />
         <AssociationConnector Association="AnchorMeModel.FK_City_Country" />
         <AssociationConnector Association="AnchorMeModel.FK_Harbour_City" />
+        <EntityTypeShape EntityType="AnchorMeModel.HarbourReservation" Width="1.5" PointX="8" PointY="1" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Harbour" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_User" />
+        <EntityTypeShape EntityType="AnchorMeModel.ReservationStatus" Width="1.5" PointX="0.75" PointY="7.875" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

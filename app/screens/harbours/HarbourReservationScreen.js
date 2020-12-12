@@ -17,7 +17,7 @@ const HarbourReservationScreen = props => {
     const [startDate, setStartDate] = useState(tomorrow);
     const [endDate, setEndDate] = useState(dayAfterTomorrow);
     const [minEndDate, setMinEndDate] = useState(dayAfterTomorrow);
-    const [details, setDetails] = useState("");
+    const [notes, setNotes] = useState("");
 
     const onStartDateChanged = (date) => {
         var selectedDate = date || startDate;
@@ -38,7 +38,13 @@ const HarbourReservationScreen = props => {
     };
 
     const onContinueButtonPressed = () => {
-        props.navigation.navigate('ReservationConfirmation');
+        let data = {
+            startDate: startDate,
+            endDate: endDate,
+            notes: notes
+        };
+
+        props.navigation.navigate('ReservationConfirmation', { data });
     };
     
     return (
@@ -65,11 +71,11 @@ const HarbourReservationScreen = props => {
                 <View style={styles.input}>
                     <Text style={styles.label}>{t('harbour_reservation.notes')}:</Text>
                     <TextInput 
-                        value={details}                       
+                        value={notes}                       
                         style={styles.details}
                         multiline={true}
                         numberOfLines={8}
-                        onChangeText={text => setDetails(text)}
+                        onChangeText={text => setNotes(text)}
                     />
                 </View>
 

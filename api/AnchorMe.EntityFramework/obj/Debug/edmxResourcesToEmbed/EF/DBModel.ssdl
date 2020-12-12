@@ -30,6 +30,18 @@
     <Property Name="Details" Type="nvarchar(max)" />
     <Property Name="Picture" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="HarbourReservation">
+    <Key>
+      <PropertyRef Name="IDHarbourReservation" />
+    </Key>
+    <Property Name="IDHarbourReservation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="HarbourID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="AdditionalNotes" Type="nvarchar(max)" />
+    <Property Name="ReservationStatusID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="LoginCredentials">
     <Key>
       <PropertyRef Name="IDLoginCredentials" />
@@ -39,6 +51,13 @@
     <Property Name="Username" Type="nvarchar" MaxLength="64" Nullable="false" />
     <Property Name="Pwd" Type="nvarchar" MaxLength="64" Nullable="false" />
     <Property Name="UserRoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReservationStatus">
+    <Key>
+      <PropertyRef Name="IDReservationStatus" />
+    </Key>
+    <Property Name="IDReservationStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReservationStatus" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="UserData">
     <Key>
@@ -107,11 +126,49 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Reservation_Harbour">
+    <End Role="Harbour" Type="Self.Harbour" Multiplicity="1" />
+    <End Role="HarbourReservation" Type="Self.HarbourReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Harbour">
+        <PropertyRef Name="IDHarbour" />
+      </Principal>
+      <Dependent Role="HarbourReservation">
+        <PropertyRef Name="HarbourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Status">
+    <End Role="ReservationStatus" Type="Self.ReservationStatus" Multiplicity="1" />
+    <End Role="HarbourReservation" Type="Self.HarbourReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReservationStatus">
+        <PropertyRef Name="IDReservationStatus" />
+      </Principal>
+      <Dependent Role="HarbourReservation">
+        <PropertyRef Name="ReservationStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_User">
+    <End Role="UserData" Type="Self.UserData" Multiplicity="1" />
+    <End Role="HarbourReservation" Type="Self.HarbourReservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserData">
+        <PropertyRef Name="IDUserData" />
+      </Principal>
+      <Dependent Role="HarbourReservation">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="AnchorMeModelStoreContainer">
     <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Harbour" EntityType="Self.Harbour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HarbourReservation" EntityType="Self.HarbourReservation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReservationStatus" EntityType="Self.ReservationStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
@@ -129,6 +186,18 @@
     <AssociationSet Name="FK_LoginCredentials_UserRole" Association="Self.FK_LoginCredentials_UserRole">
       <End Role="UserRole" EntitySet="UserRole" />
       <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Harbour" Association="Self.FK_Reservation_Harbour">
+      <End Role="Harbour" EntitySet="Harbour" />
+      <End Role="HarbourReservation" EntitySet="HarbourReservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Status" Association="Self.FK_Reservation_Status">
+      <End Role="ReservationStatus" EntitySet="ReservationStatus" />
+      <End Role="HarbourReservation" EntitySet="HarbourReservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_User" Association="Self.FK_Reservation_User">
+      <End Role="UserData" EntitySet="UserData" />
+      <End Role="HarbourReservation" EntitySet="HarbourReservation" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

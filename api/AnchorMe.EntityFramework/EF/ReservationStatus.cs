@@ -12,26 +12,17 @@ namespace AnchorMe.EntityFramework.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Harbour
+    public partial class ReservationStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Harbour()
+        public ReservationStatus()
         {
             this.HarbourReservation = new HashSet<HarbourReservation>();
         }
     
-        public int IDHarbour { get; set; }
-        public string HarbourName { get; set; }
-        public int CityID { get; set; }
-        public decimal Latitude { get; set; }
-        public decimal Longitude { get; set; }
-        public int BerthsQuantity { get; set; }
-        public string Picture { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public string Details { get; set; }
+        public int IDReservationStatus { get; set; }
+        public string ReservationStatus1 { get; set; }
     
-        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HarbourReservation> HarbourReservation { get; set; }
     }

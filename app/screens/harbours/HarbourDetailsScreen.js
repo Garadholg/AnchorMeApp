@@ -9,7 +9,6 @@ import NavigationHeader from '../../components/common/NavigationHeader';
 import Button from '../../components/common/Button';
 import { LocalizedStrings as t } from '../../translations/Translations';
 import Colours from '../../constants/colours';
-import { color } from 'react-native-reanimated';
 
 const HarbourDetailsScreen = props => {
     

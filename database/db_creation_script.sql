@@ -73,4 +73,28 @@ create table Harbour
 	CONSTRAINT FK_Harbour_City FOREIGN KEY (CityID)
 		REFERENCES City(IDCity),
 )
+
+create table ReservationStatus
+(
+	IDReservationStatus int primary key identity,
+	ReservationStatus nvarchar(30) not null
+)
+
+create table HarbourReservation
+(
+	IDHarbourReservation int primary key identity,
+	UserID int not null,
+	HarbourID int not null,
+	StartDate date not null,
+	EndDate date not null,
+	AdditionalNotes nvarchar(max),
+	ReservationStatusID int not null default 1,
+
+	CONSTRAINT FK_Reservation_User FOREIGN KEY (UserID)
+		REFERENCES UserData(IDUserData),
+	CONSTRAINT FK_Reservation_Harbour FOREIGN KEY (HarbourID)
+		REFERENCES Harbour(IDHarbour),
+	CONSTRAINT FK_Reservation_Status FOREIGN KEY (ReservationStatusID)
+		REFERENCES ReservationStatus(IDReservationStatus),
+)
 go
