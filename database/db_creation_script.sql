@@ -98,3 +98,5 @@ create table HarbourReservation
 		REFERENCES ReservationStatus(IDReservationStatus),
 )
 go
+
+select * from HarbourReservation

@@ -6,7 +6,7 @@ import HarbourDetailsScreen from '../screens/harbours/HarbourDetailsScreen';
 import HarbourReservationScreen from '../screens/harbours/HarbourReservationScreen';
 import HarbourReservationConfirmationScreen from '../screens/harbours/HarbourReservationConfirmationScreen';
 
-const HarbourCardNavigator = createStackNavigator(
+const HarbourCardNavigation = createStackNavigator(
     {
         HarboursList: HarboursListScreen,
         HarbourDetails: HarbourDetailsScreen,
@@ -18,4 +18,4 @@ const HarbourCardNavigator = createStackNavigator(
     }
 );
 
-export default HarbourCardNavigator;
+export default HarbourCardNavigation;

@@ -1,7 +1,9 @@
-import { CREATE_RESERVATION } from '../actions/reservations';
+import { CREATE_RESERVATION, GET_RESERVATIONS_FOR_USER } from '../actions/reservations';
 
 const initialState = {
-    newReservationInfo: null
+    newReservationInfo: null,
+    activeReservations: [],
+    pastReservations: []
 };
 
 export default (state = initialState, action) => {
@@ -9,8 +11,14 @@ export default (state = initialState, action) => {
         case CREATE_RESERVATION:
             return {
                 ...state,
-                newReservationInfo: null,
+                newReservationInfo: null
             };
+        case GET_RESERVATIONS_FOR_USER:
+            return {
+                ...state,
+                activeReservations: action.data.ActiveReservations,
+                pastReservations: action.data.PastReservations
+            }
         default:
             return state;
     }

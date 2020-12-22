@@ -10,6 +10,6 @@ namespace AnchorMe.Services.Messaging.Harbours
 {
     public class GetAllHarboursResponse : BaseResponse
     {
-        public IEnumerable<HarbourVM> data { get; set; }
+        public IEnumerable<HarbourVM> Harbours { get; set; }
     }
 }

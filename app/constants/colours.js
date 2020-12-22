@@ -5,5 +5,8 @@ export default Colours = {
     white: "#ffffff",
     error: "#c20000",
     success: "#1abd1d",
-    disabled: "#cbcbcb"
+    disabled: "#cbcbcb",
+    active: "#1abd1d",
+    pending: "#ebb734",
+    declined: "#c20000"
 }

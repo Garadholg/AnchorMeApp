@@ -1,24 +1,33 @@
 import React from 'react';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Feather } from '@expo/vector-icons';
+import { AntDesign, Feather } from '@expo/vector-icons';
 
 import { LocalizedStrings as t } from '../translations/Translations';
 import DrawerMenu from '../components/drawer/DrawerMenu';
-import HarbourTabNavigator from './HarbourTabNavigator';
+import HarbourTabNavigation from './HarbourTabNavigation';
+import ReservationsTabNavigator from './ReservationsTabNavigation';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import SettingsScreen from '../screens/home/SettingsScreen';
 import Colours from '../constants/colours';
 
 import { initLocalization } from '../translations/Translations';
+
 initLocalization();
 
-const DrawerNavigator = createDrawerNavigator(
+const DrawerNavigation = createDrawerNavigator(
     {
         Harbours: {
-            screen: HarbourTabNavigator,
+            screen: HarbourTabNavigation,
             navigationOptions: {
                 drawerLabel: t('navigation.drawer_labels.harbours'),
                 drawerIcon: ({ tintColor }) => <Feather name="anchor" size={24} color={tintColor} />
+            }
+        },
+        Reservations: {
+            screen: ReservationsTabNavigator,
+            navigationOptions: {
+                drawerLabel: t('navigation.drawer_labels.reservations'),
+                drawerIcon: ({ tintColor }) => <AntDesign name="book" size={24} color={tintColor} />
             }
         },
         Profile: {
@@ -45,4 +54,4 @@ const DrawerNavigator = createDrawerNavigator(
     }
 );
 
-export default DrawerNavigator;
+export default DrawerNavigation;

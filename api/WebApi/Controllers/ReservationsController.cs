@@ -28,5 +28,19 @@ namespace WebApi.Controllers
 
             return Ok(response);
         }
+
+        [HttpPost]
+        [Route("api/reservations/getForUser")]
+        public IHttpActionResult GetReservationsForUser([FromBody]GetReservationsForUserRequest request)
+        {
+            GetReservationsForUserResponse response = reservationService.GetReservationsForUser(request);
+
+            if (!response.Successful)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Ok(response);
+        }
     }
 }

@@ -32,5 +32,14 @@ namespace AnchorMe.EntityFramework.Repositories.Implementations
             ctx.HarbourReservation.Add(reservation);
             ctx.SaveChanges();
         }
+
+        public IEnumerable<HarbourReservation> GetAllReservationsForUser(int userID)
+        {
+            var reservations = ctx.HarbourReservation
+                                .Where(r => r.UserID == userID)
+                                .ToList();
+
+            return reservations;
+        }
     }
 }

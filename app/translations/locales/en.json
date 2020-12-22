@@ -40,9 +40,13 @@
             "profile": "My profile",
             "settings": "Settings"
         },
-        "tab_labels": {
+        "harbours_tab_labels": {
             "list": "Harbours",
             "map": "Map"
+        },
+        "reservations_tab_labels": {
+            "active": "Active",
+            "past": "Past"
         }
     },
     "errors": {

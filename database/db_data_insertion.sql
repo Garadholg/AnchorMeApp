@@ -51,3 +51,12 @@ values ('Pending'),
 	   ('Declined'),
 	   ('Cancelled')
 go
+
+insert into HarbourReservation
+values (3, 1, '20201210', '20201230', 'Testni reservation koji je aktivan', 3),
+	   (3, 4, '20201212', '20201215', 'Testni reservation koji zavrsava danas', 3),
+	   (3, 3, '20201110', '20201114', 'Past reservation that went fine', 4),
+	   (3, 1, '20201022', '20201028', 'Past reservation declined', 5),
+	   (3, 4, '20201210', '20201230', 'Current reservation declined', 5),
+	   (3, 6, '20210106', '20210120', 'Pending reservation', 1)
+go

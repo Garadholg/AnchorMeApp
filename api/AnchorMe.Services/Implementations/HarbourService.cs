@@ -35,8 +35,7 @@ namespace AnchorMe.Services.Implementations
                     harbourVMList.Add(new HarbourVM(h));
                 }
 
-                response.data = harbourVMList;
-                response.Successful = true;
+                response.Harbours = harbourVMList;
             }
             catch (Exception ex)
             {

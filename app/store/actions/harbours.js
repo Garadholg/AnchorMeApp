@@ -22,7 +22,7 @@ export const getAllHarbours = () => {
 
         dispatch({
             type: GET_HARBOURS_ALL,
-            data: respData.data
+            data: respData.Harbours
         });
     };
 };

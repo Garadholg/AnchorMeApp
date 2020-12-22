@@ -38,11 +38,16 @@
             "harbours": "Luke",
             "logout": "Odjava",
             "profile": "Moj profil",
+            "reservations": "Moje rezervacije",
             "settings": "Postavke"
         },
-        "tab_labels": {
+        "harbours_tab_labels": {
             "list": "Luke",
             "map": "Karta"
+        },
+        "reservations_tab_labels": {
+            "active": "Aktivne",
+            "past": "Prošle"
         }
     },
     "errors": {

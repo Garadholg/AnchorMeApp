@@ -10,5 +10,6 @@ namespace AnchorMe.Services.Interfaces
     public interface IReservationService
     {
         MakeReservationResponse MakeReservation(MakeReservationRequest request);
+        GetReservationsForUserResponse GetReservationsForUser(GetReservationsForUserRequest request);
     }
 }
