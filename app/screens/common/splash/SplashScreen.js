@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import * as authActions from '../../store/actions/auth';
+import * as authActions from '../../../store/actions/auth';
 
 const SplashScreen = props => {
 

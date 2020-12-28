@@ -5,9 +5,9 @@ import { AntDesign, Feather } from '@expo/vector-icons';
 import { LocalizedStrings as t } from '../translations/Translations';
 import DrawerMenu from '../components/drawer/DrawerMenu';
 import HarbourTabNavigation from './HarbourTabNavigation';
-import ReservationsTabNavigator from './ReservationsTabNavigation';
-import ProfileScreen from '../screens/profile/ProfileScreen';
-import SettingsScreen from '../screens/home/SettingsScreen';
+import ReservationsNavigation from './ReservationsNavigation';
+import ProfileScreen from '../screens/common/profile/ProfileScreen';
+import SettingsScreen from '../screens/common/settings/SettingsScreen';
 import Colours from '../constants/colours';
 
 import { initLocalization } from '../translations/Translations';
@@ -24,7 +24,7 @@ const DrawerNavigation = createDrawerNavigator(
             }
         },
         Reservations: {
-            screen: ReservationsTabNavigator,
+            screen: ReservationsNavigation,
             navigationOptions: {
                 drawerLabel: t('navigation.drawer_labels.reservations'),
                 drawerIcon: ({ tintColor }) => <AntDesign name="book" size={24} color={tintColor} />

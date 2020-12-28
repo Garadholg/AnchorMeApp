@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import moment from 'moment';
 
@@ -24,7 +24,12 @@ const ReservationCard = props => {
     const statusColor = bindStatusColor();
 
     return (
-        <View style={styles.card}>
+        <TouchableOpacity 
+            style={styles.card} 
+            activeOpacity={0.8}
+            onPress={props.onPress}
+            >
+
             <Text style={styles.name}>{props.reservation.HarbourName}</Text>
             <View style={styles.location}>
                 <SimpleLineIcons name="location-pin" size={16} color={Colours.dark} />
@@ -35,7 +40,8 @@ const ReservationCard = props => {
                 <Text style={styles.statusLabel}>Status: </Text>
                 <Text style={{ ...styles.statusText, ...statusColor }}>{props.reservation.Status}</Text>
             </View>
-        </View>
+            
+        </TouchableOpacity>
     );
 };
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import ActiveReservationsScreen from '../screens/reservations/ActiveReservationsScreen';
-import PastReservationsScreen from '../screens/reservations/PastReservationsScreen';
+import ActiveReservationsScreen from '../screens/user/reservations/ActiveReservationsScreen';
+import PastReservationsScreen from '../screens/user/reservations/PastReservationsScreen';
 import { LocalizedStrings as t, initLocalization } from '../translations/Translations';
 import Colours from '../constants/colours';
 

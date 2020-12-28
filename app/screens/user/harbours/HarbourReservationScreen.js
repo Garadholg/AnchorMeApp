@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, StyleSheet, Text, TextInput } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import NavigationHeader from '../../components/common/NavigationHeader';
-import DatePicker from '../../components/common/DatePicker';
-import Button from '../../components/common/Button';
-import { LocalizedStrings as t } from '../../translations/Translations';
-import Colours from '../../constants/colours';
+import NavigationHeader from '../../../components/common/NavigationHeader';
+import DatePicker from '../../../components/common/DatePicker';
+import Button from '../../../components/common/Button';
+import { LocalizedStrings as t } from '../../../translations/Translations';
+import Colours from '../../../constants/colours';
 
 var tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);

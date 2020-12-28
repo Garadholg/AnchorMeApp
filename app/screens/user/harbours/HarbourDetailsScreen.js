@@ -4,11 +4,11 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { useSelector } from 'react-redux';
 import { SimpleLineIcons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 
-import NoPictureView from '../../components/common/NoPictureView';
-import NavigationHeader from '../../components/common/NavigationHeader';
-import Button from '../../components/common/Button';
-import { LocalizedStrings as t } from '../../translations/Translations';
-import Colours from '../../constants/colours';
+import NoPictureView from '../../../components/common/NoPictureView';
+import NavigationHeader from '../../../components/common/NavigationHeader';
+import Button from '../../../components/common/Button';
+import { LocalizedStrings as t } from '../../../translations/Translations';
+import Colours from '../../../constants/colours';
 
 const HarbourDetailsScreen = props => {
     

@@ -27,11 +27,15 @@
         "end_date": "Datum završetka",
         "harbour_name": "Naziv luke",
         "harbour_location": "Lokacija",
+        "info": "Informacije o rezervaciji",
         "notes": "Dodatne napomene",
         "request_reservation": "Zatraži rezervaciju",
         "reservation_period": "Razdoblje rezervacije",
         "start_date": "Datum početka",
-        "summary": "Pregled"
+        "summary": "Pregled",
+        "user_contacts": "Kontakti",
+        "user_full_name": "Ime i prezime",
+        "user_info": "Informacije o korisniku"
     },
     "navigation": {
         "drawer_labels": {

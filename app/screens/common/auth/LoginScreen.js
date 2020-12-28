@@ -5,14 +5,14 @@ import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import { LocalizedStrings as t } from '../../translations/Translations';
-import { loginValidation } from '../../utils/validation';
-import FloatingLabelInput from '../../components/common/FloatingLabelInput';
-import DismissKeyboardView from '../../components/common/DismissKeyboardView';
-import Button from '../../components/common/Button';
-import Colours from '../../constants/colours';
+import { LocalizedStrings as t } from '../../../translations/Translations';
+import { loginValidation } from '../../../utils/validation';
+import FloatingLabelInput from '../../../components/common/FloatingLabelInput';
+import DismissKeyboardView from '../../../components/common/DismissKeyboardView';
+import Button from '../../../components/common/Button';
+import Colours from '../../../constants/colours';
 
-import * as authActions from '../../store/actions/auth';
+import * as authActions from '../../../store/actions/auth';
 
 const LoginScreen = props => {
 
@@ -66,7 +66,7 @@ const LoginScreen = props => {
             <View style={styles.container}>
                 <Image
                     style={styles.logo}
-                    source={require('../../assets/anchor-logo.png')}
+                    source={require('../../../assets/anchor-logo.png')}
                     resizeMode="contain"
                 />
                 <FloatingLabelInput

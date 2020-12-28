@@ -3,7 +3,7 @@ import { createSwitchNavigator } from "react-navigation";
 
 import AuthNavigator from './AuthNavigation';
 import DrawerNavigator from './DrawerNavigation';
-import SplashScreen from '../screens/splash/SplashScreen';
+import SplashScreen from '../screens/common/splash/SplashScreen';
 
 const mainNavigator = createSwitchNavigator(
     {

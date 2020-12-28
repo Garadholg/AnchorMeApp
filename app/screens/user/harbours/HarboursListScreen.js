@@ -3,10 +3,10 @@ import { View, FlatList, StyleSheet, SafeAreaView, TouchableWithoutFeedback } fr
 import { useDispatch, useSelector } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import HarbourCard from '../../components/harbours/HarbourCard';
-import NavigationHeader from '../../components/common/NavigationHeader';
-import * as harboursActions from '../../store/actions/harbours';
-import Colours from '../../constants/colours';
+import HarbourCard from '../../../components/harbours/HarbourCard';
+import NavigationHeader from '../../../components/common/NavigationHeader';
+import * as harboursActions from '../../../store/actions/harbours';
+import Colours from '../../../constants/colours';
 
 const HarboursScreen = props => {
     

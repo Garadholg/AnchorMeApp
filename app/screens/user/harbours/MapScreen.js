@@ -3,9 +3,9 @@ import { View, StyleSheet } from 'react-native';
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSelector } from 'react-redux';
 
-import HarbourMapMarker from '../../components/harbours/HarbourMapMarker';
-import HarbourMapCallout from '../../components/harbours/HarbourMapCallout';
-import mapStyle from '../../constants/mapStyle';
+import HarbourMapMarker from '../../../components/harbours/HarbourMapMarker';
+import HarbourMapCallout from '../../../components/harbours/HarbourMapCallout';
+import mapStyle from '../../../constants/mapStyle';
 
 const mapRegion = {
     latitude: 44.496232,

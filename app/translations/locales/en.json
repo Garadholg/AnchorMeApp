@@ -27,11 +27,15 @@
         "end_date": "End date",
         "harbour_name": "Harbour name",
         "harbour_location": "Location",
+        "info": "Reservation details",
         "notes": "Additional notes",
         "request_reservation": "Request reservation",
         "reservation_period": "Reservation period",
         "start_date": "Start date",
-        "summary": "Summary"
+        "summary": "Summary",
+        "user_contacts": "Contacts",
+        "user_full_name": "Full name",
+        "user_info": "User details"
     },
     "navigation": {
         "drawer_labels": {

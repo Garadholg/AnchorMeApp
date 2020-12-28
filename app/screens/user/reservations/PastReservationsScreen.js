@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
-import NavigationHeader from '../../components/common/NavigationHeader';
-import ReservationCard from '../../components/reservations/ReservationCard';
-import * as reservationsActions from '../../store/actions/reservations';
-import Colours from '../../constants/colours';
+import NavigationHeader from '../../../components/common/NavigationHeader';
+import ReservationCard from '../../../components/reservations/ReservationCard';
+import * as reservationsActions from '../../../store/actions/reservations';
+import Colours from '../../../constants/colours';
 
 const PastReservationsScreen = props => {
 
@@ -18,7 +18,7 @@ const PastReservationsScreen = props => {
         return (
             <ReservationCard
                 reservation={item.item}
-                onPress={() => {}}
+                onPress={() => props.navigation.navigate('ReservationDetails')}
             />
         );
     };
