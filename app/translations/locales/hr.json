@@ -41,6 +41,7 @@
         "drawer_labels": {
             "harbours": "Luke",
             "logout": "Odjava",
+            "messages": "Poruke",
             "profile": "Moj profil",
             "reservations": "Moje rezervacije",
             "settings": "Postavke"

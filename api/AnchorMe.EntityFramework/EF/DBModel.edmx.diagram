@@ -4,22 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="47f14cb7298944abbb3505feaabe8d10" Name="Diagram1">
-        <EntityTypeShape EntityType="AnchorMeModel.LoginCredentials" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AnchorMeModel.UserData" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="AnchorMeModel.FK_LoginCredentials_UserData" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="AnchorMeModel.UserRole" Width="1.5" PointX="0.75" PointY="4.875" />
-        <AssociationConnector Association="AnchorMeModel.FK_LoginCredentials_UserRole" />
-        <EntityTypeShape EntityType="AnchorMeModel.City" Width="1.5" PointX="5.625" PointY="4.875" />
-        <EntityTypeShape EntityType="AnchorMeModel.Country" Width="1.5" PointX="3.375" PointY="5" />
-        <EntityTypeShape EntityType="AnchorMeModel.Harbour" Width="1.5" PointX="5.375" PointY="0.75" />
-        <AssociationConnector Association="AnchorMeModel.FK_City_Country" />
-        <AssociationConnector Association="AnchorMeModel.FK_Harbour_City" />
-        <EntityTypeShape EntityType="AnchorMeModel.HarbourReservation" Width="1.5" PointX="8" PointY="1" />
-        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Harbour" />
-        <AssociationConnector Association="AnchorMeModel.FK_Reservation_User" />
-        <EntityTypeShape EntityType="AnchorMeModel.ReservationStatus" Width="1.5" PointX="0.75" PointY="7.875" />
-        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Status" />
+      <Diagram DiagramId="1ae1ffde2b0b445abfb6894ef401a102" Name="Diagram1">
+        <EntityTypeShape EntityType="AnchorMeModel.City" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.Country" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.Harbour" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.HarbourAdmin" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.HarbourReservation" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.LoginCredentials" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.Rating" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.ReservationStatus" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnchorMeModel.UserData" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="AnchorMeModel.FK_City_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Harbour_City" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Admin_Harbour" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Harbour" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Admin_Credential" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Rating" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_Reservation_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AnchorMeModel.FK_User_Credential" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

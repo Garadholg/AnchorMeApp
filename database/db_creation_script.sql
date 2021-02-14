@@ -10,37 +10,6 @@ exec sp_addrolemember N'db_owner', N'AMuser'
 go
 
 -- table generation
-create table UserRole 
-(
-	IDUserRole int primary key identity,
-	RoleName nvarchar(20) not null
-)
-
-create table UserData
-(
-	IDUserData int primary key identity,
-	FirstName nvarchar(150) not null,
-	LastName nvarchar(200) not null,
-	DateOfBirth date not null,
-	Email nvarchar(320) not null,
-	Phone nvarchar(50),
-	ProfilePicture nvarchar(max)
-)
-
-create table LoginCredentials
-(
-	IDLoginCredentials int primary key identity,
-	UserDataID int not null,
-	Username nvarchar(64) not null,
-	Pwd nvarchar(64) not null,
-	UserRoleID int not null,
-
-	CONSTRAINT FK_LoginCredentials_UserData FOREIGN KEY (UserDataID)
-		REFERENCES UserData(IDUserData),
-	CONSTRAINT FK_LoginCredentials_UserRole FOREIGN KEY (UserRoleID)
-		REFERENCES UserRole(IDUserRole),
-)
-
 create table Country
 (
 	IDCountry int primary key identity,
@@ -74,10 +43,53 @@ create table Harbour
 		REFERENCES City(IDCity),
 )
 
+create table LoginCredentials
+(
+	IDLoginCredentials int primary key identity,
+	Username nvarchar(64) not null,
+	Pwd nvarchar(64) not null,
+)
+
+create table UserData
+(
+	IDUserData int primary key identity,
+	LoginCredentialsID int not null,
+	FirstName nvarchar(150) not null,
+	LastName nvarchar(200) not null,
+	DateOfBirth date not null,
+	Email nvarchar(320) not null,
+	Phone nvarchar(50),
+	ProfilePicture nvarchar(max),
+
+	CONSTRAINT FK_User_Credential FOREIGN KEY (LoginCredentialsID)
+		REFERENCES LoginCredentials(IDLoginCredentials)
+)
+
+create table HarbourAdmin
+(
+	IDHarbourAdmin int primary key identity,
+	LoginCredentialsID int not null,
+	HarbourID int not null,
+	Rating decimal(2,1) not null,
+
+	CONSTRAINT FK_Admin_Credential FOREIGN KEY (LoginCredentialsID)
+		REFERENCES LoginCredentials(IDLoginCredentials),
+	CONSTRAINT FK_Admin_Harbour FOREIGN KEY (HarbourID)
+		REFERENCES Harbour(IDHarbour)
+)
+
+
 create table ReservationStatus
 (
 	IDReservationStatus int primary key identity,
 	ReservationStatus nvarchar(30) not null
+)
+
+create table Rating
+(
+	IDRating int primary key identity,
+	RatingValue int not null,
+	Comment nvarchar(300) null
 )
 
 create table HarbourReservation
@@ -89,6 +101,7 @@ create table HarbourReservation
 	EndDate date not null,
 	AdditionalNotes nvarchar(max),
 	ReservationStatusID int not null default 1,
+	RatingID int,
 
 	CONSTRAINT FK_Reservation_User FOREIGN KEY (UserID)
 		REFERENCES UserData(IDUserData),
@@ -96,7 +109,7 @@ create table HarbourReservation
 		REFERENCES Harbour(IDHarbour),
 	CONSTRAINT FK_Reservation_Status FOREIGN KEY (ReservationStatusID)
 		REFERENCES ReservationStatus(IDReservationStatus),
+	CONSTRAINT FK_Reservation_Rating FOREIGN KEY (RatingID)
+		REFERENCES Rating(IDRating)
 )
 go
-
-select * from HarbourReservation

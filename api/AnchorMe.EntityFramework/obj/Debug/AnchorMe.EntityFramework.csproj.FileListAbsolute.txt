@@ -1,3 +1,4 @@
+D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CoreCompileInputs.cache
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\AnchorMe.EntityFramework.dll.config
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\AnchorMe.EntityFramework.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\AnchorMe.EntityFramework.pdb
@@ -5,8 +6,6 @@ D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFra
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.xml
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
-D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CoreCompileInputs.cache
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CopyComplete
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.pdb
-D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csprojAssemblyReference.cache

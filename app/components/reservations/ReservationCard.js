@@ -27,7 +27,7 @@ const ReservationCard = props => {
         <TouchableOpacity 
             style={styles.card} 
             activeOpacity={0.8}
-            onPress={props.onPress}
+            onPress={() => props.onPress(props.reservation.ReservationID)}
             >
 
             <Text style={styles.name}>{props.reservation.HarbourName}</Text>

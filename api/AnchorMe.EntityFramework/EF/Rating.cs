@@ -12,18 +12,19 @@ namespace AnchorMe.EntityFramework.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class UserRole
+    public partial class Rating
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserRole()
+        public Rating()
         {
-            this.LoginCredentials = new HashSet<LoginCredentials>();
+            this.HarbourReservation = new HashSet<HarbourReservation>();
         }
     
-        public int IDUserRole { get; set; }
-        public string RoleName { get; set; }
+        public int IDRating { get; set; }
+        public int RatingValue { get; set; }
+        public string Comment { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoginCredentials> LoginCredentials { get; set; }
+        public virtual ICollection<HarbourReservation> HarbourReservation { get; set; }
     }
 }

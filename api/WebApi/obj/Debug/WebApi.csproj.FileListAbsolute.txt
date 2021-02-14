@@ -1,3 +1,4 @@
+D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\bin\WebApi.dll.config
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\bin\WebApi.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\bin\WebApi.pdb
@@ -90,7 +91,6 @@ D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\bin\Microsoft.CodeDom.Providers.DotNe
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\bin\AnchorMe.EntityFramework.pdb
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\bin\AnchorMe.EntityFramework.dll.config
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\obj\Debug\WebApi.csprojAssemblyReference.cache
-D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\obj\Debug\WebApi.csproj.CopyComplete
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\obj\Debug\WebApi.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\WebApi\obj\Debug\WebApi.pdb

@@ -17,11 +17,11 @@ namespace AnchorMe.EntityFramework.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserData()
         {
-            this.LoginCredentials = new HashSet<LoginCredentials>();
             this.HarbourReservation = new HashSet<HarbourReservation>();
         }
     
         public int IDUserData { get; set; }
+        public int LoginCredentialsID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public System.DateTime DateOfBirth { get; set; }
@@ -30,8 +30,7 @@ namespace AnchorMe.EntityFramework.EF
         public string ProfilePicture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LoginCredentials> LoginCredentials { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HarbourReservation> HarbourReservation { get; set; }
+        public virtual LoginCredentials LoginCredentials { get; set; }
     }
 }

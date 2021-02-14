@@ -22,10 +22,9 @@ namespace AnchorMe.EntityFramework.Repositories.Implementations
 
         public UserData GetUserDataForLogin(string username, string password)
         {
-            var userData = ctx.LoginCredentials
-                .Where(c => c.Username == username && c.Pwd == password)
-                .FirstOrDefault()
-                .UserData;
+            var userData = ctx.UserData
+                .Where(u => u.LoginCredentials.Username == username && u.LoginCredentials.Pwd == password)
+                .FirstOrDefault();
 
             return userData;
         }

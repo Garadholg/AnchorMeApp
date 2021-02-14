@@ -9,6 +9,9 @@ namespace AnchorMe.Services.Messaging.ViewModels
 {
     public class LoggedUserVM
     {
+        private const string ROLE_USER = "user";
+        private const string ROLE_ADMIN = "admin";
+
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,7 +20,10 @@ namespace AnchorMe.Services.Messaging.ViewModels
         public string ProfilePicture { get; set; }
 
         public string Username { get; set; }
-        public int Role { get; set; }
+        public string Role { get; set; }
+        public double Rating { get; set; }
+
+        public HarbourVM adminHarbour { get; set; }
 
         public LoggedUserVM(UserData user)
         {
@@ -27,8 +33,10 @@ namespace AnchorMe.Services.Messaging.ViewModels
             Email = user.Email;
             Phone = user.Phone;
             ProfilePicture = ProfilePicture;
-            Username = user.LoginCredentials.First().Username;
-            Role = user.LoginCredentials.First().UserRole.IDUserRole;
+            Username = user.LoginCredentials.Username;
+            Role = ROLE_USER;
         }
+
+        
     }
 }

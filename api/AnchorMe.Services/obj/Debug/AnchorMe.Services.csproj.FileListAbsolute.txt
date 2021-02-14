@@ -1,4 +1,4 @@
-D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\EntityFramework.xml
+D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csproj.CoreCompileInputs.cache
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.pdb
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.EntityFramework.dll
@@ -7,8 +7,8 @@ D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\EntityFramework.
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.EntityFramework.pdb
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.EntityFramework.dll.config
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.Messaging.pdb
+D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\bin\Debug\EntityFramework.xml
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csprojAssemblyReference.cache
-D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csproj.CoreCompileInputs.cache
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csproj.CopyComplete
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.pdb

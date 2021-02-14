@@ -2,6 +2,10 @@ import React from 'react';
 import { View, Image, ScrollView, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import StarRating from 'react-native-star-rating';
+import Stars from 'react-native-stars';
+import StarRatingBar from 'react-native-star-rating-view/StarRatingBar';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 
 import Colours from '../../../constants/colours';
@@ -21,6 +25,7 @@ const UserProfileScreen = props => {
             </View>
 
             <ScrollView>
+                <View style={styles.pictureView}>
                 <View>
                     <View style={styles.profileImage}>
                         <Image 
@@ -28,21 +33,36 @@ const UserProfileScreen = props => {
                             source={ profilePicture } 
                             resizeMode="cover">
                         </Image>
-
                     </View>
 
                     <View style={styles.btnChangePicture}>
                         <Ionicons name="md-add-circle" size={60} color={Colours.dark} backgroundColor={Colours.white} />
                     </View>
                 </View>
+                </View>
 
                 <View style={styles.usernameContainer}>
-
                     <View style={styles.username}>
                         <Text style={styles.usernameText}>{userData.Username}</Text>
-                        <MaterialCommunityIcons name="check-decagram" size={28} color={Colours.dark} style={styles.iconVerified} />
+                        {userData.IsVerified == true &&
+                            <MaterialCommunityIcons name="check-decagram" size={28} color={Colours.dark} style={styles.iconVerified} />
+                        }
                     </View>
                 </View>
+
+                <View style={styles.ratingContainer}>
+                    <Rating
+                        type='custom'
+                        startingValue={1.7}
+                        fractions={1}
+                        minValue={1}
+                        readonly={true}
+                        // ratingBackgroundColor={Colours.background}
+                        style={{ paddingVertical: 10, color: Colours.background }}
+                    />
+                    <Text style={styles.ratingText}>(4.2)</Text>
+                </View>
+
             </ScrollView>
         </View>
     );
@@ -64,6 +84,11 @@ const styles = StyleSheet.create({
         left: 30
     },
 
+    pictureView: {
+        width: "100%",
+        alignItems: 'center',
+    },
+
     image: {
         flex: 1,
         height: undefined,
@@ -81,7 +106,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 0,
         right: 0,
-        height: 49.4,
+        height: 49.2,
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: Colours.white,
@@ -106,6 +131,21 @@ const styles = StyleSheet.create({
 
     iconVerified: {
         marginLeft: 5
+    },
+
+    ratingContainer: {
+        width: "100%",
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        backgroundColor: Colours.white,
+        borderRadius: 20,
+        elevation: 4
+    },
+
+    ratingText: {
+        color: Colours.dark,
+        fontSize: 19
     }
 });
 

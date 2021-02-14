@@ -6,6 +6,7 @@ import { LocalizedStrings as t } from '../translations/Translations';
 import DrawerMenu from '../components/drawer/DrawerMenu';
 import HarbourTabNavigation from './HarbourTabNavigation';
 import ReservationsNavigation from './ReservationsNavigation';
+import MessagingNavigation from './MessagingNavigation';
 import ProfileScreen from '../screens/common/profile/ProfileScreen';
 import SettingsScreen from '../screens/common/settings/SettingsScreen';
 import Colours from '../constants/colours';
@@ -28,6 +29,13 @@ const DrawerNavigation = createDrawerNavigator(
             navigationOptions: {
                 drawerLabel: t('navigation.drawer_labels.reservations'),
                 drawerIcon: ({ tintColor }) => <AntDesign name="book" size={24} color={tintColor} />
+            }
+        },
+        Messages: {
+            screen: MessagingNavigation,
+            navigationOptions: {
+                drawerLabel: t('navigation.drawer_labels.messages'),
+                drawerIcon: ({ tintColor }) => <Feather name="message-square" size={24} color={tintColor} />
             }
         },
         Profile: {

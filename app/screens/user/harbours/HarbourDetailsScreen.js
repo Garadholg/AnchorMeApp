@@ -12,7 +12,7 @@ import Colours from '../../../constants/colours';
 
 const HarbourDetailsScreen = props => {
     
-    const selectedHarbour = useSelector(state => state.harbours.selectedHarbour);
+    const selectedHarbour = useSelector(state => state.harbours.selectedHarbourToReserve);
     
     return (
         <SafeAreaView style={styles.container}>

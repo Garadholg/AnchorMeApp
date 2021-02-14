@@ -12,20 +12,14 @@ namespace AnchorMe.EntityFramework.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class HarbourReservation
+    public partial class HarbourAdmin
     {
-        public int IDHarbourReservation { get; set; }
-        public int UserID { get; set; }
+        public int IDHarbourAdmin { get; set; }
+        public int LoginCredentialsID { get; set; }
         public int HarbourID { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public System.DateTime EndDate { get; set; }
-        public string AdditionalNotes { get; set; }
-        public int ReservationStatusID { get; set; }
-        public Nullable<int> RatingID { get; set; }
+        public decimal Rating { get; set; }
     
         public virtual Harbour Harbour { get; set; }
-        public virtual Rating Rating { get; set; }
-        public virtual ReservationStatus ReservationStatus { get; set; }
-        public virtual UserData UserData { get; set; }
+        public virtual LoginCredentials LoginCredentials { get; set; }
     }
 }

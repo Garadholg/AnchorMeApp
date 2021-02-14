@@ -1,23 +1,6 @@
 use AnchorMe
 go
 
-insert into UserRole
-values ('admin'),
-	   ('user')
-go
-
-insert into UserData 
-values ('Admin', 'Admin', '00010101', 'admin@mail.com', '000000000', null),
-	   ('User', 'User', '19000101', 'user@mail.com', null, null),
-	   ('Anton', 'Maurovic', '19940119', 'amaurov@racunarstvo.hr', '0911111111', null)
-go
-
-insert into LoginCredentials
-values (1, 'admin', 'admin', 1),
-	   (2, 'user', 'test123', 2),
-	   (3, 'amaurov', '12345', 2)
-go
-
 insert into Country
 values ('Croatia')
 go
@@ -43,6 +26,20 @@ values ('Luèica "Delfin"', 1, '+911111111', 'delfin.pula@mail.hr', 44.844893, 13
 	   ('ACI Marina Dubrovnik', 7, '+988888888', 'aci.dubrovnik@mail.hr', 42.671067, 18.125734, 96, 'Integer rutrum hendrerit ex, ac congue augue mollis sed. Pellentesque tempor tincidunt massa, quis porttitor orci iaculis ut. Vivamus a sagittis augue. Sed malesuada quam sed ipsum consectetur imperdiet. Proin interdum tortor non orci pellentesque, nec sollicitudin urna convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia facilisis erat sagittis convallis.', null)
 go
 
+insert into LoginCredentials
+values ('admin', 'admin'),
+	   ('user', 'test123'),
+	   ('amaurov', '12345')
+go
+
+insert into UserData 
+values (2, 'Pero', 'Peric', '19000101', 'user@mail.com', null, null),
+	   (3, 'Anton', 'Maurovic', '19940119', 'amaurov@racunarstvo.hr', '0911111111', null)
+go
+
+insert into HarbourAdmin
+values (1, 2, 0.0)
+
 insert into ReservationStatus
 values ('Pending'),
 	   ('Accepted'),
@@ -53,10 +50,11 @@ values ('Pending'),
 go
 
 insert into HarbourReservation
-values (3, 1, '20201210', '20201230', 'Testni reservation koji je aktivan', 3),
-	   (3, 4, '20201212', '20201215', 'Testni reservation koji zavrsava danas', 3),
-	   (3, 3, '20201110', '20201114', 'Past reservation that went fine', 4),
-	   (3, 1, '20201022', '20201028', 'Past reservation declined', 5),
-	   (3, 4, '20201210', '20201230', 'Current reservation declined', 5),
-	   (3, 6, '20210106', '20210120', 'Pending reservation', 1)
+values (2, 1, '20201230', '20210225', 'Testni reservation koji je aktivan', 3, null),
+	   (2, 4, '20201212', '20210103', 'Testni reservation koji zavrsava danas', 3, null),
+	   (2, 3, '20201110', '20201214', 'Past reservation that went fine', 4, null),
+	   (2, 1, '20201022', '20201028', 'Past reservation declined', 5, null),
+	   (2, 4, '20210102', '20210210', 'Current reservation declined', 5, null),
+	   (2, 6, '20210120', '20210131', 'Pending reservation', 1, null)
 go
+

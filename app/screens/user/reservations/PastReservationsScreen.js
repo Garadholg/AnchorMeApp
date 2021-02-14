@@ -14,11 +14,16 @@ const PastReservationsScreen = props => {
 
     const dispatch = useDispatch();
 
+    const onReservationSelected = (id) => {
+        dispatch(reservationsActions.setSelectedReservation(id, false));
+        props.navigation.navigate('ReservationDetails');
+    };
+
     const renderReservationCard = item => {
         return (
             <ReservationCard
                 reservation={item.item}
-                onPress={() => props.navigation.navigate('ReservationDetails')}
+                onPress={onReservationSelected}
             />
         );
     };

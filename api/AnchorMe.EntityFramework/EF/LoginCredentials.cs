@@ -14,13 +14,20 @@ namespace AnchorMe.EntityFramework.EF
     
     public partial class LoginCredentials
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LoginCredentials()
+        {
+            this.HarbourAdmin = new HashSet<HarbourAdmin>();
+            this.UserData = new HashSet<UserData>();
+        }
+    
         public int IDLoginCredentials { get; set; }
-        public int UserDataID { get; set; }
         public string Username { get; set; }
         public string Pwd { get; set; }
-        public int UserRoleID { get; set; }
     
-        public virtual UserData UserData { get; set; }
-        public virtual UserRole UserRole { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HarbourAdmin> HarbourAdmin { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserData> UserData { get; set; }
     }
 }

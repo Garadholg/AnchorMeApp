@@ -41,6 +41,7 @@
         "drawer_labels": {
             "harbours": "Harbours",
             "logout": "Logout",
+            "messages": "Messages",
             "profile": "My profile",
             "settings": "Settings"
         },
