@@ -6,8 +6,7 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
 export const login = reqData => {
-    return async dispatch => {
-        
+    return async dispatch => {        
         const response = await fetch(apiUrl + 'login',
             {
                 method: 'POST',
@@ -32,7 +31,10 @@ export const login = reqData => {
             data: respData
         });
 
-        return respData.Successful;
+        return {
+            successful: respData.Successful,
+            role: respData.LoggedUser.Role
+        } 
 
     };
 }

@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import ReservationsTabNavigation from './ReservationsTabNavigation';
 import ReservationDetailsScreen from '../screens/user/reservations/ReservationDetailsScreen';
 
-const ActiveReservationsNavigation = createStackNavigator(
+const UserReservationsNavigation = createStackNavigator(
     {
         Reservations: ReservationsTabNavigation,
         ReservationDetails: ReservationDetailsScreen
@@ -14,4 +14,4 @@ const ActiveReservationsNavigation = createStackNavigator(
     }
 );
 
-export default ActiveReservationsNavigation;
+export default UserReservationsNavigation;

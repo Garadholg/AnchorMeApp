@@ -12,5 +12,7 @@ namespace AnchorMe.EntityFramework.Repositories.Interfaces
         void CreateHarbourReservation(int userID, int harbourID, DateTime startDate, DateTime endDate, string additionalNotes);
 
         IEnumerable<HarbourReservation> GetAllReservationsForUser(int userID);
+
+        IEnumerable<HarbourReservation> GetAllReservationsForAdmin(int adminID);
     }
 }

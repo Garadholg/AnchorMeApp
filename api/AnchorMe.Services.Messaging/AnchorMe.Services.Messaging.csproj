@@ -45,11 +45,14 @@
     <Compile Include="Base\Base.cs" />
     <Compile Include="Harbours\GetAllHarbours.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservations\GetReservationsForAdmin.cs" />
     <Compile Include="Reservations\GetReservationsForUser.cs" />
     <Compile Include="Reservations\MakeReservation.cs" />
+    <Compile Include="Reservations\SetRatingForReservation.cs" />
+    <Compile Include="ViewModels\AdminReservationVM.cs" />
     <Compile Include="ViewModels\HarbourVM.cs" />
     <Compile Include="ViewModels\LoggedUserVM.cs" />
-    <Compile Include="ViewModels\ReservationVM.cs" />
+    <Compile Include="ViewModels\UserReservationVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnchorMe.EntityFramework\AnchorMe.EntityFramework.csproj">

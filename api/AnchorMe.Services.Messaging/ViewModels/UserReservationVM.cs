@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnchorMe.Services.Messaging.ViewModels
 {
-    public class ReservationVM
+    public class UserReservationVM
     {
         public int ReservationID { get; set; }
         public int UserID { get; set; }
@@ -17,9 +17,9 @@ namespace AnchorMe.Services.Messaging.ViewModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Status { get; set; }
-        public double Rating { get; set; }
+        public double? Rating { get; set; }
 
-        public ReservationVM(HarbourReservation reservation)
+        public UserReservationVM(HarbourReservation reservation)
         {
             ReservationID = reservation.IDHarbourReservation;
             UserID = reservation.UserData.IDUserData;
@@ -29,7 +29,7 @@ namespace AnchorMe.Services.Messaging.ViewModels
             StartDate = reservation.StartDate;
             EndDate = reservation.EndDate;
             Status = reservation.ReservationStatus.ReservationStatus1;
-            Rating = reservation.Rating.RatingValue;
+            Rating = reservation.Rating?.RatingValue;
         }
     }
 }

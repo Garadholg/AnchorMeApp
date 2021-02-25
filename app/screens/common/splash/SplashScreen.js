@@ -18,8 +18,16 @@ const SplashScreen = props => {
                     } else {
                         creds = JSON.parse(data);
                         await dispatch(authActions.login(creds))
-                        .then(() => {
-                            props.navigation.navigate('Home');
+                        .then((resp) => {
+                            if (resp.successful) {
+                                if (resp.role == "user") {
+                                    props.navigation.navigate('UserHome');
+                                }
+                
+                                if (resp.role == "admin") {
+                                    props.navigation.navigate('AdminHome');
+                                }
+                            }
                         })
                     }
                 });

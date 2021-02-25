@@ -31,6 +31,7 @@ namespace AnchorMe.EntityFramework.EF
         public int BerthsQuantity { get; set; }
         public string Details { get; set; }
         public string Picture { get; set; }
+        public decimal Rating { get; set; }
     
         public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

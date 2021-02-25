@@ -1,4 +1,4 @@
-import { CREATE_RESERVATION, GET_RESERVATIONS_FOR_USER, SET_SELECTED_RESERVATION } from '../actions/reservations';
+import { CREATE_RESERVATION, GET_RESERVATIONS_FOR_USER, SET_SELECTED_RESERVATION, SET_RATING_FOR_RESERVATION } from '../actions/userReservations';
 
 const initialState = {
     newReservationInfo: null,
@@ -21,6 +21,11 @@ export default (state = initialState, action) => {
                 pastReservations: action.data.PastReservations
             };
         case SET_SELECTED_RESERVATION:
+            return {
+                ...state,
+                selectedReservation: action.data
+            };
+        case SET_RATING_FOR_RESERVATION:
             return {
                 ...state,
                 selectedReservation: action.data

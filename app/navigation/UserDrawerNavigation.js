@@ -15,7 +15,7 @@ import { initLocalization } from '../translations/Translations';
 
 initLocalization();
 
-const DrawerNavigation = createDrawerNavigator(
+const UserDrawerNavigation = createDrawerNavigator(
     {
         Harbours: {
             screen: HarbourTabNavigation,
@@ -31,13 +31,13 @@ const DrawerNavigation = createDrawerNavigator(
                 drawerIcon: ({ tintColor }) => <AntDesign name="book" size={24} color={tintColor} />
             }
         },
-        Messages: {
-            screen: MessagingNavigation,
-            navigationOptions: {
-                drawerLabel: t('navigation.drawer_labels.messages'),
-                drawerIcon: ({ tintColor }) => <Feather name="message-square" size={24} color={tintColor} />
-            }
-        },
+        // Messages: {
+        //     screen: MessagingNavigation,
+        //     navigationOptions: {
+        //         drawerLabel: t('navigation.drawer_labels.messages'),
+        //         drawerIcon: ({ tintColor }) => <Feather name="message-square" size={24} color={tintColor} />
+        //     }
+        // },
         Profile: {
             screen: ProfileScreen,
             navigationOptions: {
@@ -62,4 +62,4 @@ const DrawerNavigation = createDrawerNavigator(
     }
 );
 
-export default DrawerNavigation;
+export default UserDrawerNavigation;

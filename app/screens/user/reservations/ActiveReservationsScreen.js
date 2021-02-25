@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavigationEvents } from 'react-navigation';
 
 import NavigationHeader from '../../../components/common/NavigationHeader';
 import ReservationCard from '../../../components/reservations/ReservationCard';
-import * as reservationsActions from '../../../store/actions/reservations';
+import * as userReservationsActions from '../../../store/actions/userReservations';
+import { LocalizedStrings as t } from '../../../translations/Translations';
 import Colours from '../../../constants/colours';
 
 const ActiveReservationsScreen = props => {
+    const [isFocused, setIsFocused] = useState(true);
 
     const userID = useSelector(state => state.auth.user.ID);
     const activeReservations = useSelector(state => state.reservations.activeReservations);
@@ -15,7 +18,7 @@ const ActiveReservationsScreen = props => {
     const dispatch = useDispatch();
 
     const onReservationSelected = (id) => {
-        dispatch(reservationsActions.setSelectedReservation(id, true));
+        dispatch(userReservationsActions.setSelectedReservation(id, true));
         props.navigation.navigate('ReservationDetails');
     };
 
@@ -29,15 +32,21 @@ const ActiveReservationsScreen = props => {
     };
 
     useEffect(() => {
-        dispatch(reservationsActions.getReservationsForUser(userID));
-    }, [dispatch]);
+        if (isFocused == true) {
+            dispatch(userReservationsActions.getReservationsForUser(userID));
+        }
+    }, [dispatch, isFocused]);
 
     if (activeReservations.length == 0) {
         return (
             <View style={styles.container}>
+                <NavigationEvents 
+                    onWillFocus={() => setIsFocused(true)}
+                    onWillBlur={() => setIsFocused(false)}
+                />
                 <View style={styles.noContent}>
                     <View style={styles.noContentCard}>
-                        <Text style={styles.noContentText}>Trenutno nemate aktivnih rezervacija</Text>
+                        <Text style={styles.noContentText}>{t('reservation_history.no_active_reservation')}</Text>
                     </View>
                 </View>
             </View>
@@ -46,6 +55,10 @@ const ActiveReservationsScreen = props => {
 
     return (
         <View style={styles.container}>
+            <NavigationEvents 
+                onWillFocus={() => setIsFocused(true)}
+                onWillBlur={() => setIsFocused(false)}
+            />
             <NavigationHeader type="drawer" navigation={props.navigation} />
             <FlatList 
                 style={styles.reservationList} 

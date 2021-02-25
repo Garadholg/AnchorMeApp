@@ -38,6 +38,7 @@ create table Harbour
 	BerthsQuantity int not null,
 	Details nvarchar(max),
 	Picture nvarchar(max),
+	Rating decimal(2,1) not null,
 
 	CONSTRAINT FK_Harbour_City FOREIGN KEY (CityID)
 		REFERENCES City(IDCity),
@@ -69,13 +70,13 @@ create table HarbourAdmin
 (
 	IDHarbourAdmin int primary key identity,
 	LoginCredentialsID int not null,
-	HarbourID int not null,
-	Rating decimal(2,1) not null,
+	HarbourID int not null,	
 
 	CONSTRAINT FK_Admin_Credential FOREIGN KEY (LoginCredentialsID)
 		REFERENCES LoginCredentials(IDLoginCredentials),
 	CONSTRAINT FK_Admin_Harbour FOREIGN KEY (HarbourID)
-		REFERENCES Harbour(IDHarbour)
+		REFERENCES Harbour(IDHarbour),
+	CONSTRAINT UC_Admin_Harbour UNIQUE (HarbourID)
 )
 
 

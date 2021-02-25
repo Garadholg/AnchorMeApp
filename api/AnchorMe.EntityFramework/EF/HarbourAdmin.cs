@@ -17,7 +17,6 @@ namespace AnchorMe.EntityFramework.EF
         public int IDHarbourAdmin { get; set; }
         public int LoginCredentialsID { get; set; }
         public int HarbourID { get; set; }
-        public decimal Rating { get; set; }
     
         public virtual Harbour Harbour { get; set; }
         public virtual LoginCredentials LoginCredentials { get; set; }

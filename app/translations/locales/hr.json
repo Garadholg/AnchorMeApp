@@ -13,6 +13,13 @@
         },
         "logout": "Želite li se stvarno odjaviti?"
     },
+    "errors": {
+        "login_unsuccessful": "Neispravno korisničko ime ili lozinka.",
+        "username_password_empty": "Korisničko ime i lozinka ne smiju biti prazni."
+    },
+    "harbour_admin": {
+        "save_changes": "Spremi izmjene"
+    },
     "harbour_card": {
         "no_picture": "Nema slike",
         "available": "Dostupno vezova"
@@ -23,8 +30,10 @@
         "reserve": "Rezerviraj"
     },
     "harbour_reservation": {
+        "cancel_rating": "Odustani",
         "continue": "Nastavi",
         "end_date": "Datum završetka",
+        "give_rating": "Ocijeni",
         "harbour_name": "Naziv luke",
         "harbour_location": "Lokacija",
         "info": "Informacije o rezervaciji",
@@ -32,13 +41,29 @@
         "request_reservation": "Zatraži rezervaciju",
         "reservation_period": "Razdoblje rezervacije",
         "start_date": "Datum početka",
+        "status_info": "Stanje rezervacije",
         "summary": "Pregled",
         "user_contacts": "Kontakti",
         "user_full_name": "Ime i prezime",
-        "user_info": "Informacije o korisniku"
+        "user_info": "Informacije o korisniku",
+        "rating_info": "Ocjena za rezervaciju"
+    },
+    
+    "languages": {
+        "croatian": "Hrvatski",
+        "english": "Engleski"
     },
     "navigation": {
+        "admin_reservations_tab_labels": {
+            "pending": "Na čekanju",
+            "accepted": "Prihvaćene",
+            "active": "Aktivne",
+            "completed": "Zatvorene",
+            "unfinished": "Poništene"
+        },
         "drawer_labels": {
+            "admin_harbour": "Moja luka",
+            "admin_reservations": "Rezervacije",
             "harbours": "Luke",
             "logout": "Odjava",
             "messages": "Poruke",
@@ -55,12 +80,12 @@
             "past": "Prošle"
         }
     },
-    "errors": {
-        "login_unsuccessful": "Neispravno korisničko ime ili lozinka.",
-        "username_password_empty": "Korisničko ime i lozinka ne smiju biti prazni."
-    },
-    "languages": {
-        "croatian": "Hrvatski",
-        "english": "Engleski"
+    "reservation_history": {
+        "no_accepted_reservation": "Trenutno nemate prihvaćenih rezervacija",
+        "no_active_reservation": "Trenutno nemate aktivnih rezervacija",
+        "no_completed_reservation": "Nemate uspješno odrađenih rezervacija",
+        "no_past_reservation": "Nemate prošlih rezervacija",
+        "no_pending_reservation": "Trenutno nemate rezervacija na čekanju",
+        "no_unfinished_reservation": "Nemate neuspjelih rezervacija"
     }
 }

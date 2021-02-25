@@ -29,6 +29,7 @@
     <Property Name="BerthsQuantity" Type="int" Nullable="false" />
     <Property Name="Details" Type="nvarchar(max)" />
     <Property Name="Picture" Type="nvarchar(max)" />
+    <Property Name="Rating" Type="decimal" Precision="2" Scale="1" Nullable="false" />
   </EntityType>
   <EntityType Name="HarbourAdmin">
     <Key>
@@ -37,7 +38,6 @@
     <Property Name="IDHarbourAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LoginCredentialsID" Type="int" Nullable="false" />
     <Property Name="HarbourID" Type="int" Nullable="false" />
-    <Property Name="Rating" Type="decimal" Precision="2" Scale="1" Nullable="false" />
   </EntityType>
   <EntityType Name="HarbourReservation">
     <Key>

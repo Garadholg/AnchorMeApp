@@ -2,13 +2,15 @@ import { createAppContainer } from "react-navigation";
 import { createSwitchNavigator } from "react-navigation";
 
 import AuthNavigator from './AuthNavigation';
-import DrawerNavigator from './DrawerNavigation';
+import UserDrawerNavigator from './UserDrawerNavigation';
+import AdminDrawerNavigator from './AdminDrawerNavigation';
 import SplashScreen from '../screens/common/splash/SplashScreen';
 
 const mainNavigator = createSwitchNavigator(
     {
         Splash: SplashScreen, 
-        Home: DrawerNavigator,
+        UserHome: UserDrawerNavigator,
+        AdminHome: AdminDrawerNavigator,
         Auth: AuthNavigator,
     },
     {

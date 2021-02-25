@@ -13,5 +13,7 @@ namespace AnchorMe.EntityFramework.Repositories
         public static IUserDataRepository GetUserDataRepository() => new UserDataRepository();
         public static IHarbourRepository GetHarbourRepository() => new HarbourRepository();
         public static IHarbourReservationRepository GetHarbourReservationRepository() => new HarbourReservationRepository();
+        public static IHarbourAdminRepository GetHarbourAdminRepository() => new HarbourAdminRepository();
+        public static IRatingRepository GetRatingRepository() => new RatingRepository();
     }
 }

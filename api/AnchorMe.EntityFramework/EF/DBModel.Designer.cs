@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\EF\DBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\EF\DBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

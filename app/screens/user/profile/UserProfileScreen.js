@@ -2,10 +2,7 @@ import React from 'react';
 import { View, Image, ScrollView, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-import StarRating from 'react-native-star-rating';
-import Stars from 'react-native-stars';
-import StarRatingBar from 'react-native-star-rating-view/StarRatingBar';
-import { Rating, AirbnbRating } from 'react-native-ratings';
+import { Rating } from 'react-native-ratings';
 import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 
 import Colours from '../../../constants/colours';
@@ -49,20 +46,6 @@ const UserProfileScreen = props => {
                         }
                     </View>
                 </View>
-
-                <View style={styles.ratingContainer}>
-                    <Rating
-                        type='custom'
-                        startingValue={1.7}
-                        fractions={1}
-                        minValue={1}
-                        readonly={true}
-                        // ratingBackgroundColor={Colours.background}
-                        style={{ paddingVertical: 10, color: Colours.background }}
-                    />
-                    <Text style={styles.ratingText}>(4.2)</Text>
-                </View>
-
             </ScrollView>
         </View>
     );
@@ -136,6 +119,7 @@ const styles = StyleSheet.create({
     ratingContainer: {
         width: "100%",
         alignItems: 'center',
+        marginVertical: 15,
         paddingHorizontal: 15,
         paddingVertical: 10,
         backgroundColor: Colours.white,

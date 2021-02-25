@@ -42,5 +42,33 @@ namespace WebApi.Controllers
 
             return Ok(response);
         }
+
+        [HttpPost]
+        [Route("api/reservations/getForAdmin")]
+        public IHttpActionResult GetReservationsForAdmin([FromBody]GetReservationsForAdminRequest request)
+        {
+            GetReservationsForAdminResponse response = reservationService.GetReservationsForAdmin(request);
+
+            if (!response.Successful)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpPost]
+        [Route("api/reservations/setRating")]
+        public IHttpActionResult SetRatingForReservation([FromBody]SetRatingForReservationRequest request)
+        {
+            SetRatingForReservationResponse response = reservationService.SetRatingForReservation(request);
+
+            if (!response.Successful)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Ok(response);
+        }
     }
 }

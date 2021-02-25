@@ -6,14 +6,14 @@ import { FontAwesome5, MaterialCommunityIcons, Feather } from '@expo/vector-icon
 import moment from 'moment';
 
 import Button from '../../../components/common/Button';
-import * as reservationsActions from '../../../store/actions/reservations';
+import * as userReservationsActions from '../../../store/actions/userReservations';
 import { LocalizedStrings as t } from '../../../translations/Translations';
 import Colours from '../../../constants/colours';
 
 const HarbourReservationConfirmationScreen = props => {
 
     const reservationData = props.navigation.getParam('data');
-    const harbour = useSelector(state => state.harbours.selectedHarbour);
+    const harbour = useSelector(state => state.harbours.selectedHarbourToReserve);
     const user = useSelector(state => state.auth.user);
     const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ const HarbourReservationConfirmationScreen = props => {
             additionalNotes: reservationData.notes
         }
 
-        dispatch(reservationsActions.createReservation(data))
+        dispatch(userReservationsActions.createReservation(data))
             .then((successful) => {
                 if (successful) {
                     props.navigation.navigate('HarboursList');

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import { View, FlatList, StyleSheet, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, FlatList, StyleSheet, SafeAreaView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { NavigationEvents } from 'react-navigation'
 
 import HarbourCard from '../../../components/harbours/HarbourCard';
 import NavigationHeader from '../../../components/common/NavigationHeader';
@@ -9,6 +10,7 @@ import * as harboursActions from '../../../store/actions/harbours';
 import Colours from '../../../constants/colours';
 
 const HarboursScreen = props => {
+    const [isFocused, setIsFocused] = useState(true);
     
     const harbours = useSelector(state => state.harbours.harbours);
 
@@ -29,11 +31,17 @@ const HarboursScreen = props => {
     }
 
     useEffect(() => {
-        dispatch(harboursActions.getAllHarbours());
-    }, [dispatch]);
+        if (isFocused == true) {
+            dispatch(harboursActions.getAllHarbours());
+        }
+    }, [dispatch, isFocused]);
 
     return (
         <SafeAreaView style={styles.container}>
+            <NavigationEvents 
+                onWillFocus={() => setIsFocused(true)}
+                onWillBlur={() => setIsFocused(false)}
+            />
             <NavigationHeader type="drawer" navigation={props.navigation} />
             <FlatList 
                 style={styles.harbourList} 

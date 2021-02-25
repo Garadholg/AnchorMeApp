@@ -21,6 +21,7 @@
     <EntitySetMapping Name="Harbour">
       <EntityTypeMapping TypeName="AnchorMeModel.Harbour">
         <MappingFragment StoreEntitySet="Harbour">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
           <ScalarProperty Name="IDHarbour" ColumnName="IDHarbour" />
           <ScalarProperty Name="HarbourName" ColumnName="HarbourName" />
           <ScalarProperty Name="CityID" ColumnName="CityID" />
@@ -40,7 +41,6 @@
           <ScalarProperty Name="IDHarbourAdmin" ColumnName="IDHarbourAdmin" />
           <ScalarProperty Name="LoginCredentialsID" ColumnName="LoginCredentialsID" />
           <ScalarProperty Name="HarbourID" ColumnName="HarbourID" />
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

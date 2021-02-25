@@ -21,9 +21,8 @@ namespace AnchorMe.Services.Messaging.ViewModels
 
         public string Username { get; set; }
         public string Role { get; set; }
-        public double Rating { get; set; }
 
-        public HarbourVM adminHarbour { get; set; }
+        public HarbourVM AdminHarbour { get; set; }
 
         public LoggedUserVM(UserData user)
         {
@@ -37,6 +36,12 @@ namespace AnchorMe.Services.Messaging.ViewModels
             Role = ROLE_USER;
         }
 
+        public LoggedUserVM(HarbourAdmin admin)
+        {
+            ID = admin.IDHarbourAdmin;
+            Role = ROLE_ADMIN;
+            AdminHarbour = new HarbourVM(admin.Harbour);
+        }
         
     }
 }

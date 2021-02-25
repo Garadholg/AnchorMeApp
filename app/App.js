@@ -6,12 +6,14 @@ import ReduxThunk from 'redux-thunk';
 import MainNavigator from './navigation/MainNavigation';
 import authReducer from './store/reducers/auth';
 import harboursReducer from './store/reducers/harbours';
-import reservationsReducer from './store/reducers/reservations';
+import userReservationsReducer from './store/reducers/userReservations';
+import adminReservationsReducer from './store/reducers/adminReservations';
 
 const rootReducer = combineReducers({
   auth: authReducer,
   harbours: harboursReducer,
-  reservations: reservationsReducer
+  userReservations: userReservationsReducer,
+  adminReservations: adminReservationsReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

@@ -37,13 +37,19 @@ const LoginScreen = props => {
         };
 
         await dispatch(authActions.login(data))
-        .then(async (successful) => {
-            if (successful) {
+        .then(async (resp) => {
+            if (resp.successful) {
                 if (toRemember) {
                     await saveLoginToStorage(data);
                 }
 
-                props.navigation.navigate('Home');
+                if (resp.role == "user") {
+                    props.navigation.navigate('UserHome');
+                }
+
+                if (resp.role == "admin") {
+                    props.navigation.navigate('AdminHome');
+                }
             }
         })
         .catch((error) => {
@@ -73,6 +79,7 @@ const LoginScreen = props => {
                     label={t('authentication.username')}
                     style={styles.input}
                     value={username}
+                    autoCapitalize='none'
                     onChangeText={(value) => {setUsername(value)}}
                 />
                 <FloatingLabelInput

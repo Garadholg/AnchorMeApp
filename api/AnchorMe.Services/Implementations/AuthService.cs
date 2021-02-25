@@ -15,10 +15,12 @@ namespace AnchorMe.Services.Implementations
     public class AuthService : IAuthService
     {
         private IUserDataRepository userDataRepository;
+        private IHarbourAdminRepository harbourAdminRepository;
 
         public AuthService()
         {
             userDataRepository = RepositoryFactory.GetUserDataRepository();
+            harbourAdminRepository = RepositoryFactory.GetHarbourAdminRepository();
         }
 
         public LoginResponse LoginUser(LoginRequest request)
@@ -29,10 +31,19 @@ namespace AnchorMe.Services.Implementations
             {
                 UserData userData = userDataRepository.GetUserDataForLogin(request.Username, request.Password);
 
-                response.LoggedUser = new LoggedUserVM(userData);
+                if (userData != null)
+                {
+                    response.LoggedUser = new LoggedUserVM(userData);
+                } 
+                else
+                {
+                    HarbourAdmin admin = harbourAdminRepository.GetAdminForLogin(request.Username, request.Password);
+                    response.LoggedUser = new LoggedUserVM(admin);
+                }
+                    
                 response.Successful = true;
             }
-            catch (Exception ex)
+            catch
             {
                 response.Successful = false;
                 response.Message = "login_unsuccessful";

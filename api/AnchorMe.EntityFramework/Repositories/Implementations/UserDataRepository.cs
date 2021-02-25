@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 
 namespace AnchorMe.EntityFramework.Repositories.Implementations
 {
-
-
     class UserDataRepository : IUserDataRepository
     {
         private AnchorMeEntities ctx;

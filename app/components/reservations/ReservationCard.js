@@ -35,7 +35,7 @@ const ReservationCard = props => {
                 <SimpleLineIcons name="location-pin" size={16} color={Colours.dark} />
                 <Text style={styles.locationText}>{ props.reservation.HarbourLocation }</Text>
             </View>
-            <Text style={styles.dates}>{moment(props.reservation.StartDate).format(t('date_format'))} - {moment(props.reservation.EndtDate).format(t('date_format'))}</Text>
+            <Text style={styles.dates}>{moment(props.reservation.StartDate).format(t('date_format'))} - {moment(props.reservation.EndDate).format(t('date_format'))}</Text>
             <View style={styles.statusContainer}>
                 <Text style={styles.statusLabel}>Status: </Text>
                 <Text style={{ ...styles.statusText, ...statusColor }}>{props.reservation.Status}</Text>

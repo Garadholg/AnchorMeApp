@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, SafeAreaView } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { useSelector } from 'react-redux';
 import { SimpleLineIcons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import { Rating } from 'react-native-ratings';
 
 import NoPictureView from '../../../components/common/NoPictureView';
 import NavigationHeader from '../../../components/common/NavigationHeader';
@@ -19,17 +20,34 @@ const HarbourDetailsScreen = props => {
             <NavigationHeader type="return" navigation={props.navigation} />
             <ScrollView>
                 <View style={styles.content}>
-                    <NoPictureView 
-                        style={styles.npv} 
-                        iconSize={48}
-                        textStyle={styles.npvText}
-                    />
+                    { selectedHarbour.Picture == null ?
+                        <NoPictureView 
+                            style={styles.picture}
+                            iconSize={48}
+                            textStyle={styles.npvText}
+                        /> :
+                        <Image 
+                            style={styles.picture} 
+                            source={{uri: selectedHarbour.Picture}}/>
+                    }
                     <View style={styles.harbourInfo}>
                         <View style={{ ...styles.cardContainer, ...styles.mainDataContainer }}>
                             <Text style={styles.harbourNameText} >{selectedHarbour.Name}</Text>
-                            <View style={styles.location}>
+                            <View style={styles.horizontalRow}>
                                 <SimpleLineIcons name="location-pin" size={18} color={Colours.dark} />
                                 <Text style={styles.locationText}>{selectedHarbour.City}, {selectedHarbour.Country}</Text>
+                            </View>
+                            <View style={styles.horizontalRow}>
+                                <Rating
+                                    type='custom'
+                                    startingValue={selectedHarbour.Rating}
+                                    imageSize={23}
+                                    fractions={1}
+                                    minValue={1}
+                                    readonly={true}
+                                    style={styles.rating}
+                                />
+                                <Text style={styles.ratingText}>({selectedHarbour.Rating})</Text>
                             </View>
                             <View style={styles.contacts}>
                                 <MaterialCommunityIcons name="message" size={28} color={Colours.dark} style={styles.contactIcon} />
@@ -57,7 +75,7 @@ const HarbourDetailsScreen = props => {
                         <View style={{ ...styles.cardContainer, ...styles.mainDataContainer, marginTop: 4 }}>
                             
                             <Text style={styles.text}>
-                                {selectedHarbour.BerthsQuantity}
+                                {selectedHarbour.BerthsQuantity - selectedHarbour.UnavailableBerths}
                             </Text>
                         </View>
                         <Button 
@@ -83,9 +101,9 @@ const styles = StyleSheet.create({
         paddingBottom: 30
     },
 
-    npv: {
+    picture: {
         width: "100%",
-        height: 300
+        height: 400
     },
 
     npvText: {
@@ -116,12 +134,23 @@ const styles = StyleSheet.create({
         color: Colours.dark
     },
 
-    location: {
+    horizontalRow: {
         flexDirection: "row",
         alignItems: "center"
     },
 
     locationText: {
+        fontSize: 17,
+        color: Colours.dark
+    },
+
+    rating: { 
+        paddingVertical: 10, 
+        color: Colours.background 
+    },
+
+    ratingText: {
+        paddingHorizontal: 5,
         fontSize: 17,
         color: Colours.dark
     },

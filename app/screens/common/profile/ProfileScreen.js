@@ -5,9 +5,9 @@ import UserProfileScreen from '../../user/profile/UserProfileScreen';
 import AdminProfileScreen from '../../admin/profile/AdminProfileScreen';
 
 const ProfileScreen = props => {
-    const user = useSelector(state => state.auth.user);
 
-    const Screen = user.Role == 1 ? <AdminProfileScreen navigation={props.navigation} /> : <UserProfileScreen navigation={props.navigation} />;
+    const user = useSelector(state => state.auth.user);
+    const Screen = user.Role == 'admin' ? <AdminProfileScreen navigation={props.navigation} /> : <UserProfileScreen navigation={props.navigation} />;
 
     return (
         Screen

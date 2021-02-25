@@ -18,8 +18,10 @@ namespace AnchorMe.Services.Messaging.ViewModels
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public int BerthsQuantity { get; set; }
+        public int UnavailableBerths { get; set; }
         public string Details { get; set; }
         public string Picture { get; set; }
+        public double Rating { get; set; }
 
         public HarbourVM(Harbour harbour)
         {
@@ -32,8 +34,17 @@ namespace AnchorMe.Services.Messaging.ViewModels
             Latitude = decimal.ToDouble(harbour.Latitude);
             Longitude = decimal.ToDouble(harbour.Longitude);
             BerthsQuantity = harbour.BerthsQuantity;
+            UnavailableBerths = CalculateUnavailableBerths(harbour);
             Details = harbour.Details;
             Picture = harbour.Picture;
+            Rating = (double)harbour.Rating;
+        }
+
+        private int CalculateUnavailableBerths(Harbour harbour)
+        {
+            return harbour.HarbourReservation
+                .Where(hr => hr.StartDate <= DateTime.Now && hr.EndDate >= DateTime.Now && (hr.ReservationStatusID == 2 || hr.ReservationStatusID == 3))
+                .Count();
         }
     }
 }

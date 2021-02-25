@@ -9,3 +9,15 @@ D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFra
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CopyComplete
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\AnchorMe.EntityFramework.dll.config
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\AnchorMe.EntityFramework.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\AnchorMe.EntityFramework.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.xml
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CoreCompileInputs.cache
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csproj.CopyComplete
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.EntityFramework\obj\Debug\AnchorMe.EntityFramework.csprojAssemblyReference.cache

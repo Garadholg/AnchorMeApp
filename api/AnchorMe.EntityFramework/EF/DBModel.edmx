@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AnchorMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AnchorMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="IDCity" />
@@ -34,6 +34,7 @@
           <Property Name="BerthsQuantity" Type="int" Nullable="false" />
           <Property Name="Details" Type="nvarchar(max)" />
           <Property Name="Picture" Type="nvarchar(max)" />
+          <Property Name="Rating" Type="decimal" Precision="2" Scale="1" Nullable="false" />
         </EntityType>
         <EntityType Name="HarbourAdmin">
           <Key>
@@ -42,7 +43,6 @@
           <Property Name="IDHarbourAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LoginCredentialsID" Type="int" Nullable="false" />
           <Property Name="HarbourID" Type="int" Nullable="false" />
-          <Property Name="Rating" Type="decimal" Precision="2" Scale="1" Nullable="false" />
         </EntityType>
         <EntityType Name="HarbourReservation">
           <Key>
@@ -248,8 +248,7 @@
             <End Role="UserData" EntitySet="UserData" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AnchorMeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -288,6 +287,7 @@
           <NavigationProperty Name="City" Relationship="Self.FK_Harbour_City" FromRole="Harbour" ToRole="City" />
           <NavigationProperty Name="HarbourAdmin" Relationship="Self.FK_Admin_Harbour" FromRole="Harbour" ToRole="HarbourAdmin" />
           <NavigationProperty Name="HarbourReservation" Relationship="Self.FK_Reservation_Harbour" FromRole="Harbour" ToRole="HarbourReservation" />
+          <Property Name="Rating" Type="Decimal" Nullable="false" Precision="2" Scale="1" />
         </EntityType>
         <EntityType Name="HarbourAdmin">
           <Key>
@@ -296,7 +296,6 @@
           <Property Name="IDHarbourAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LoginCredentialsID" Type="Int32" Nullable="false" />
           <Property Name="HarbourID" Type="Int32" Nullable="false" />
-          <Property Name="Rating" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
           <NavigationProperty Name="Harbour" Relationship="Self.FK_Admin_Harbour" FromRole="HarbourAdmin" ToRole="Harbour" />
           <NavigationProperty Name="LoginCredentials" Relationship="Self.FK_Admin_Credential" FromRole="HarbourAdmin" ToRole="LoginCredentials" />
         </EntityType>
@@ -540,6 +539,7 @@
           <EntitySetMapping Name="Harbour">
             <EntityTypeMapping TypeName="AnchorMeModel.Harbour">
               <MappingFragment StoreEntitySet="Harbour">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="IDHarbour" ColumnName="IDHarbour" />
                 <ScalarProperty Name="HarbourName" ColumnName="HarbourName" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
@@ -559,7 +559,6 @@
                 <ScalarProperty Name="IDHarbourAdmin" ColumnName="IDHarbourAdmin" />
                 <ScalarProperty Name="LoginCredentialsID" ColumnName="LoginCredentialsID" />
                 <ScalarProperty Name="HarbourID" ColumnName="HarbourID" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

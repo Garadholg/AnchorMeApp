@@ -13,6 +13,13 @@
         },
         "logout": "Are you sure you want to log out?"
     },
+    "errors": {
+        "login_unsuccessful": "Wrong username or password.",
+        "username_password_empty": "Username and password must not be empty."
+    },
+    "harbour_admin": {
+        "save_changes": "Save changes"
+    },
     "harbour_card": {
         "no_picture": "No Photo",
         "available": "Available berths"
@@ -23,8 +30,10 @@
         "reserve": "Make reservation"
     },
     "harbour_reservation": {
+        "cancel_rating": "Cancel",
         "continue": "Continue",
         "end_date": "End date",
+        "give_rating": "Rate now",
         "harbour_name": "Harbour name",
         "harbour_location": "Location",
         "info": "Reservation details",
@@ -32,13 +41,27 @@
         "request_reservation": "Request reservation",
         "reservation_period": "Reservation period",
         "start_date": "Start date",
+        "status_info": "Reservation status",
         "summary": "Summary",
         "user_contacts": "Contacts",
         "user_full_name": "Full name",
         "user_info": "User details"
     },
+    "languages": {
+        "croatian": "Croatian",
+        "english": "English"
+    },
     "navigation": {
+        "admin_reservations_tab_labels": {
+            "pending": "Pending",
+            "accepted": "Accepted",
+            "active": "Active",
+            "completed": "Completed",
+            "unfinished": "Unfinished"
+        },
         "drawer_labels": {
+            "admin_harbour": "My harbour",
+            "admin_reservations": "Reservations",
             "harbours": "Harbours",
             "logout": "Logout",
             "messages": "Messages",
@@ -54,12 +77,10 @@
             "past": "Past"
         }
     },
-    "errors": {
-        "login_unsuccessful": "Wrong username or password.",
-        "username_password_empty": "Username and password must not be empty."
-    },
-    "languages": {
-        "croatian": "Croatian",
-        "english": "English"
+    "reservation_history": {
+        "no_accepted_reservation": "There are no accepted reservations",
+        "no_active_reservation": "There are no active reservations",
+        "no_past_reservation": "There are no past reservations",
+        "no_pending_reservation": "There are no pending reservations"
     }
 }

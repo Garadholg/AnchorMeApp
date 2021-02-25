@@ -12,3 +12,17 @@ D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Service
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csproj.CopyComplete
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.dll
 D:\Faks\Zavrsni rad\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.EntityFramework.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.Messaging.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\EntityFramework.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.EntityFramework.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.EntityFramework.dll.config
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\AnchorMe.Services.Messaging.pdb
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\bin\Debug\EntityFramework.xml
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csprojAssemblyReference.cache
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csproj.CoreCompileInputs.cache
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.csproj.CopyComplete
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.dll
+C:\Anton Faks - Selfstudy\AnchorMeCopy\AnchorMeApp\api\AnchorMe.Services\obj\Debug\AnchorMe.Services.pdb

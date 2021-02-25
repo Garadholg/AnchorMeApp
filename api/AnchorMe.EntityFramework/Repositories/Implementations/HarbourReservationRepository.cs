@@ -41,5 +41,19 @@ namespace AnchorMe.EntityFramework.Repositories.Implementations
 
             return reservations;
         }
+
+        public IEnumerable<HarbourReservation> GetAllReservationsForAdmin(int adminID)
+        {
+            var adminHarbourID = ctx.HarbourAdmin
+                .Where(a => a.IDHarbourAdmin == adminID)
+                .FirstOrDefault()
+                .HarbourID;
+
+            var reservations = ctx.HarbourReservation
+                                .Where(r => r.HarbourID == adminHarbourID)
+                                .ToList();
+
+            return reservations;
+        }
     }
 }

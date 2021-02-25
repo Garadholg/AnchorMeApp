@@ -15,7 +15,7 @@ namespace AnchorMe.Services.Messaging.Reservations
 
     public class GetReservationsForUserResponse : BaseResponse
     {
-        public IEnumerable<ReservationVM> ActiveReservations { get; set; }
-        public IEnumerable<ReservationVM> PastReservations { get; set; }
+        public IEnumerable<UserReservationVM> ActiveReservations { get; set; }
+        public IEnumerable<UserReservationVM> PastReservations { get; set; }
     }
 }

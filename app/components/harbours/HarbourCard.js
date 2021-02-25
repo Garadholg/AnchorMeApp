@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
 import { SimpleLineIcons } from '@expo/vector-icons';
+import { Rating } from 'react-native-ratings';
 
 import NoPictureView from '../common/NoPictureView';
 import { LocalizedStrings as t } from '../../translations/Translations';
@@ -14,8 +15,11 @@ const HarbourCard = props => {
             activeOpacity={0.8}
             onPress={() => props.onPress(props.harbour.ID)} >
             <View style={styles.cardContent}>
-                { props.harbour.Picture == null &&
-                    <NoPictureView style={styles.npv} />
+                { props.harbour.Picture == null ?
+                    <NoPictureView style={styles.picture} /> :
+                    <Image 
+                        style={styles.picture} 
+                        source={{uri: props.harbour.Picture}}/>
                 }
                 <View style={styles.harbourData}>
                     <View style={styles.infoContainer}>
@@ -24,9 +28,21 @@ const HarbourCard = props => {
                             <SimpleLineIcons name="location-pin" size={16} color={Colours.dark} />
                             <Text style={styles.locationText}>{ props.harbour.City }, { props.harbour.Country }</Text>
                         </View>
+                        <View style={styles.ratingContainer}>
+                            <Rating
+                                type='custom'
+                                startingValue={props.harbour.Rating}
+                                imageSize={20}
+                                fractions={1}
+                                minValue={1}
+                                readonly={true}
+                                style={{ paddingVertical: 10, color: Colours.background }}
+                            />
+                            <Text style={styles.ratingText}>({props.harbour.Rating})</Text>
+                        </View>
                     </View>
                     <View style={styles.availContainer}>
-                        <Text style={styles.availText}>{t('harbour_card.available')}: { props.harbour.BerthsQuantity }</Text>
+                        <Text style={styles.availText}>{t('harbour_card.available')}: { props.harbour.BerthsQuantity - props.harbour.UnavailableBerths }</Text>
                     </View>
                 </View>
             </View>
@@ -36,7 +52,7 @@ const HarbourCard = props => {
 
 const styles = StyleSheet.create({
     card: {
-        height: 120,
+        height: 135,
         marginVertical: 8,
         paddingHorizontal: 8,
         paddingVertical: 10,
@@ -56,8 +72,10 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
 
-    npv: {
-        marginRight: 10
+    picture: {
+        marginRight: 10,
+        height: 115,
+        width: 115
     }, 
 
     noPictureText: {
@@ -65,7 +83,8 @@ const styles = StyleSheet.create({
     },
 
     harbourData: {
-        flexGrow: 1
+        flexGrow: 1,
+        
     },
 
     infoContainer: {
@@ -85,6 +104,16 @@ const styles = StyleSheet.create({
     },
 
     locationText: {
+        color: Colours.dark
+    },
+
+    ratingContainer: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+
+    ratingText: {
+        paddingHorizontal: 5,
         color: Colours.dark
     },
 

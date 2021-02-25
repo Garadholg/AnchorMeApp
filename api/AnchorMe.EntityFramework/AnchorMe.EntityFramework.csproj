@@ -96,11 +96,15 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Implementations\HarbourAdminRepository.cs" />
     <Compile Include="Repositories\Implementations\HarbourRepository.cs" />
     <Compile Include="Repositories\Implementations\HarbourReservationRepository.cs" />
+    <Compile Include="Repositories\Implementations\RatingRepository.cs" />
     <Compile Include="Repositories\Implementations\UserDataRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHarbourAdminRepository.cs" />
     <Compile Include="Repositories\Interfaces\IHarbourRepository.cs" />
     <Compile Include="Repositories\Interfaces\IHarbourReservationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRatingRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserDataRepository.cs" />
     <Compile Include="Repositories\RepositoryFactory.cs" />
   </ItemGroup>
