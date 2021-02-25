@@ -13,5 +13,6 @@ namespace AnchorMe.Services
         public static IAuthService GetAuthService() => new AuthService();
         public static IHarbourService GetHarbourService() => new HarbourService();
         public static IReservationService GetReservationService() => new ReservationService();
+        public static IAdminService GetAdminService() => new AdminService();
     }
 }

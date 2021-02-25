@@ -10,5 +10,6 @@ namespace AnchorMe.EntityFramework.Repositories.Interfaces
     public interface IHarbourAdminRepository
     {
         HarbourAdmin GetAdminForLogin(string username, string password);
+        void UpdateAdminInfo(int harbourID, string details, int qty);
     }
 }

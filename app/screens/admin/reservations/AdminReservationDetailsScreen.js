@@ -76,7 +76,7 @@ const AdminReservationDetailsScreen = props => {
 
                         <View style={styles.infoSection}>
                             <Text style={styles.reservationTitle}>{t('harbour_reservation.status_info')}:</Text>
-                            <View style={styles.reservationInfo}>
+                            <View style={styles.reservationInfo}><Text>I NEED A PICKER HERE</Text>
                                 <View style={styles.infoContainer}>
                                     <Text style={styles.infoLabel}>{t('harbour_reservation.user_full_name')}:</Text>
                                     <Text style={styles.infoText}>{reservation.UserFullName}</Text>

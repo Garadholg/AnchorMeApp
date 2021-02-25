@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\UpdateAdminInfo.cs" />
     <Compile Include="Auth\Login.cs" />
     <Compile Include="Base\Base.cs" />
     <Compile Include="Harbours\GetAllHarbours.cs" />

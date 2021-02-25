@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\AdminService.cs" />
     <Compile Include="Implementations\AuthService.cs" />
     <Compile Include="Implementations\HarbourService.cs" />
     <Compile Include="Implementations\ReservationService.cs" />
+    <Compile Include="Interfaces\IAdminService.cs" />
     <Compile Include="Interfaces\IAuthService.cs" />
     <Compile Include="Interfaces\IHarbourService.cs" />
     <Compile Include="Interfaces\IReservationService.cs" />

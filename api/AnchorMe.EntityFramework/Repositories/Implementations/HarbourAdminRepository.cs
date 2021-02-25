@@ -25,5 +25,17 @@ namespace AnchorMe.EntityFramework.Repositories.Implementations
 
             return admin;
         }
+
+        public void UpdateAdminInfo(int harbourID, string details, int qty)
+        {
+            Harbour harbour = ctx.HarbourAdmin
+                .Where(a => a.HarbourID == harbourID)
+                .FirstOrDefault().Harbour;
+
+            harbour.Details = details;
+            harbour.BerthsQuantity += qty;
+
+            ctx.SaveChanges();
+        }
     }
 }
