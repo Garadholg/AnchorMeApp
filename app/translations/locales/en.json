@@ -78,6 +78,7 @@
         }
     },
     "reservation_history": {
+        "change_status": "Update state",
         "no_accepted_reservation": "There are no accepted reservations",
         "no_active_reservation": "There are no active reservations",
         "no_past_reservation": "There are no past reservations",

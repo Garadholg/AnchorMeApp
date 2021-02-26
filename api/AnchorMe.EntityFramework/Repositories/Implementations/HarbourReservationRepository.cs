@@ -55,5 +55,16 @@ namespace AnchorMe.EntityFramework.Repositories.Implementations
 
             return reservations;
         }
+
+        public void UpdateReservationStatus(int reservationID, int statusID)
+        {
+            var reservation = ctx.HarbourReservation
+                .Where(r => r.IDHarbourReservation == reservationID)
+                .FirstOrDefault();
+
+            reservation.ReservationStatusID = statusID;
+
+            ctx.SaveChanges();
+        }
     }
 }

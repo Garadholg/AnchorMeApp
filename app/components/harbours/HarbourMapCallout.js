@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Image, StyleSheet } from 'react-native';
 
 import NoPictureView from '../../components/common/NoPictureView';
 import { LocalizedStrings as t } from '../../translations/Translations';
@@ -7,12 +7,20 @@ import { LocalizedStrings as t } from '../../translations/Translations';
 const HarbourMapCallout = props => {
 
     return (
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => props.onPress(props.harbour.ID)}>
             <View style={styles.content}>
-                <NoPictureView 
-                    style={styles.picture}
-                    iconSize={18}
-                    textStyle={styles.npvText} />
+                { props.harbour.Picture == null ?
+                    <NoPictureView 
+                        style={styles.picture}
+                        iconSize={18}
+                        textStyle={styles.npvText} 
+                    /> :
+                    <Image 
+                        style={styles.picture} 
+                        source={{uri: props.harbour.Picture}}
+                    />
+                }
+                
                 <View>
                     <View style={styles.info}>
                         <Text>{ props.harbour.Name }</Text>
@@ -41,7 +49,7 @@ const styles = StyleSheet.create({
     picture: {
         height: 70,
         width: 70,
-        marginRight: 10
+        marginRight: 10,
     },
 
     npvText: {

@@ -14,5 +14,7 @@ namespace AnchorMe.EntityFramework.Repositories.Interfaces
         IEnumerable<HarbourReservation> GetAllReservationsForUser(int userID);
 
         IEnumerable<HarbourReservation> GetAllReservationsForAdmin(int adminID);
+
+        void UpdateReservationStatus(int reservationID, int statusID);
     }
 }

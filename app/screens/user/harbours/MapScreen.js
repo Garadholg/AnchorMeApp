@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import HarbourMapMarker from '../../../components/harbours/HarbourMapMarker';
 import HarbourMapCallout from '../../../components/harbours/HarbourMapCallout';
+import * as harboursActions from '../../../store/actions/harbours';
 import mapStyle from '../../../constants/mapStyle';
 
 const mapRegion = {
@@ -17,6 +18,12 @@ const mapRegion = {
 const MapScreen = props => {
 
     const harbours = useSelector(state => state.harbours.harbours); 
+    const dispatch = useDispatch();
+
+    const onHarbourPressed = (id) => {
+        dispatch(harboursActions.setSelectedHarbour(id));
+        props.navigation.navigate('HarbourDetails');
+    }
 
     const renderMarkers = () => {   
         return harbours.map((item) => 
@@ -25,7 +32,10 @@ const MapScreen = props => {
                 coordinate={{ latitude: item.Latitude, longitude: item.Longitude }}>
                 <HarbourMapMarker />
                 <Callout>
-                    <HarbourMapCallout harbour={item} />
+                    <HarbourMapCallout 
+                        harbour={item}
+                        onPress={onHarbourPressed}
+                    />
                 </Callout>
             </Marker>
         );

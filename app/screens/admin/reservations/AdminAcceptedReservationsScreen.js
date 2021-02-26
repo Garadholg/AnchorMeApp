@@ -16,9 +16,9 @@ const AdminAcceptedReservationsScreen = props => {
 
     const dispatch = useDispatch();
 
-    const onReservationSelected = (id) => {
-        //dispatch(reservationsActions.setSelectedReservation(id, true));
-        props.navigation.navigate('ReservationDetails');
+    const onReservationSelected = (id, status) => {
+        dispatch(adminReservationsActions.setSelectedReservation(id, status));
+        props.navigation.navigate('AdminReservationDetails');
     };
 
     const renderAdminReservationCard = item => {

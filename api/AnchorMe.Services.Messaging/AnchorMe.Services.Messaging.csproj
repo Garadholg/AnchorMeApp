@@ -50,6 +50,7 @@
     <Compile Include="Reservations\GetReservationsForUser.cs" />
     <Compile Include="Reservations\MakeReservation.cs" />
     <Compile Include="Reservations\SetRatingForReservation.cs" />
+    <Compile Include="Reservations\UpdateReservationStatus.cs" />
     <Compile Include="ViewModels\AdminReservationVM.cs" />
     <Compile Include="ViewModels\HarbourVM.cs" />
     <Compile Include="ViewModels\LoggedUserVM.cs" />

@@ -63,3 +63,26 @@ export const setSelectedReservation = (id, status) => {
         });
     }
 };
+
+export const updateReservationStatus = request => {
+    return async (dispatch) => {  
+        const response = await fetch(apiUrl + 'reservations/updateStatus',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ReservationID: request.reservationID,
+                    StatusID: request.status
+                })
+            }
+        );
+
+        const respData = await response.json();
+
+        if (!response.ok) {
+            throw respData.Message;
+        }
+    };
+};

@@ -146,5 +146,22 @@ namespace AnchorMe.Services.Implementations
 
             return response;
         }
+
+        public UpdateReservationStatusResponse UpdateReservationStatus(UpdateReservationStatusRequest request)
+        {
+            UpdateReservationStatusResponse response = new UpdateReservationStatusResponse();
+
+            try
+            {
+                harbourReservationRepository.UpdateReservationStatus(request.ReservationID, request.StatusID);
+            }
+            catch (Exception ex)
+            {
+                response.Successful = false;
+                response.Message = ex.Message;
+            }
+
+            return response;
+        }
     }
 }

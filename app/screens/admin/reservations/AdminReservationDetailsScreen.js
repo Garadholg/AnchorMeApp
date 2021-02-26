@@ -1,22 +1,51 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, Modal, TextInput } from 'react-native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { useDispatch, useSelector } from 'react-redux';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { Picker } from '@react-native-community/picker';
 import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
-import { Rating } from 'react-native-ratings';
 import moment from 'moment';
 
 import NavigationHeader from '../../../components/common/NavigationHeader';
 import Button from '../../../components/common/Button';
+import * as adminReservationActions from '../../../store/actions/adminReservations';
 import { LocalizedStrings as t } from '../../../translations/Translations';
 import Colours from '../../../constants/colours';
+
+const mapStatusValue = status => {
+    switch (status) {
+        case 'Pending':
+            return 1;
+        case 'Accepted':
+            return 2;
+        case 'Active':
+            return 3;
+        case 'Completed':
+            return 4;
+        case 'Declined':
+            return 5;
+        case 'Cancelled':
+            return 6;
+    };
+}
 
 const AdminReservationDetailsScreen = props => {
 
     const reservation = useSelector(state => state.adminReservations.selectedReservation);
     const harbour = useSelector(state => state.auth.user.AdminHarbour);
 
+    const [reservationStatus, setReservationStatus] = useState(mapStatusValue(reservation.Status));
+
     const dispatch = useDispatch();
+
+    const submitStateChange = () => {
+        const data = {
+            reservationID: reservation.ReservationID,
+            status: reservationStatus
+        }
+
+        dispatch(adminReservationActions.updateReservationStatus(data));
+    };
 
     return (
         <View style={styles.container}>
@@ -76,25 +105,28 @@ const AdminReservationDetailsScreen = props => {
 
                         <View style={styles.infoSection}>
                             <Text style={styles.reservationTitle}>{t('harbour_reservation.status_info')}:</Text>
-                            <View style={styles.reservationInfo}><Text>I NEED A PICKER HERE</Text>
-                                <View style={styles.infoContainer}>
-                                    <Text style={styles.infoLabel}>{t('harbour_reservation.user_full_name')}:</Text>
-                                    <Text style={styles.infoText}>{reservation.UserFullName}</Text>
-                                </View>
+                            <View style={styles.reservationInfo}>
+                                <View style={styles.pickerContainer}>
+                                    <Picker
+                                        selectedValue={reservationStatus}
+                                        style={styles.picker}
+                                        mode='dropdown'
+                                        onValueChange={(itemValue) => setReservationStatus(itemValue)}>
 
-                                <View style={styles.infoContainer}>
-                                    <Text style={styles.infoLabel}>{t('harbour_reservation.user_contacts')}:</Text>
-                                    <View style={styles.contactRow}>
-                                        <MaterialCommunityIcons name="email" size={17} color={Colours.dark} style={styles.contactIcon} />
-                                        <Text style={styles.infoText}>{reservation.UserEmail}</Text>
-                                    </View>
-                                    {reservation.UserPhone != null &&
-                                        <View style={styles.contactRow}>
-                                            <FontAwesome5 name="phone" size={17} color={Colours.dark} style={styles.contactIcon} />
-                                            <Text style={styles.infoText}>{reservation.UserPhone}</Text>
-                                        </View>
-                                    }
+                                        <Picker.Item label="Pending" value="1" />
+                                        <Picker.Item label="Accepted" value="2" />
+                                        <Picker.Item label="Active" value="3" />
+                                        <Picker.Item label="Completed" value="4" />
+                                        <Picker.Item label="Declined" value="5" />
+                                        <Picker.Item label="Cancelled" value="6" />
+
+                                    </Picker>
                                 </View>
+                                <Button 
+                                    text={t('reservation_history.change_status')}
+                                    style={styles.statusButton}
+                                    onPress={submitStateChange}
+                                />
                             </View>
                         </View>
                     </View>
@@ -219,6 +251,18 @@ const styles = StyleSheet.create({
 
     ratingCancel: {
         backgroundColor: Colours.disabled
+    },
+
+    pickerContainer: {
+        width: "100%",
+        marginVertical: 12,
+        borderWidth: 2,
+        borderRadius: 7,
+        borderColor: Colours.dark
+    },
+
+    statusButton: {
+        marginBottom: 12
     }
 });
 

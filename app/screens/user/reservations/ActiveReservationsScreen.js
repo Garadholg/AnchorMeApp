@@ -13,7 +13,7 @@ const ActiveReservationsScreen = props => {
     const [isFocused, setIsFocused] = useState(true);
 
     const userID = useSelector(state => state.auth.user.ID);
-    const activeReservations = useSelector(state => state.reservations.activeReservations);
+    const activeReservations = useSelector(state => state.userReservations.activeReservations);
 
     const dispatch = useDispatch();
 

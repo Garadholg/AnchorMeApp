@@ -41,7 +41,7 @@ namespace AnchorMe.EntityFramework.Repositories.Implementations
                 .FirstOrDefault();
 
             List<Rating> ratings = ctx.HarbourReservation
-                .Where(hr => hr.Harbour.IDHarbour == harbour.IDHarbour)
+                .Where(hr => hr.Harbour.IDHarbour == harbour.IDHarbour && hr.RatingID != null)
                 .Select(hr => hr.Rating)
                 .ToList();
 

@@ -7,7 +7,7 @@ export const SET_RATING_FOR_RESERVATION = "SET_RATING_FOR_RESERVATION";
 
 export const createReservation = request => {
     return async dispatch => {
-        
+        console.log(request);
         const response = await fetch(apiUrl + 'reservations/create',
             {
                 method: 'POST',
@@ -72,9 +72,9 @@ export const setSelectedReservation = (id, active) => {
         var reservation;
 
         if (active) {
-            reservation = getState().reservations.activeReservations.find(x => x.ReservationID == id);
+            reservation = getState().userReservations.activeReservations.find(x => x.ReservationID == id);
         } else {
-            reservation = getState().reservations.pastReservations.find(x => x.ReservationID == id);
+            reservation = getState().userReservations.pastReservations.find(x => x.ReservationID == id);
         }
 
         dispatch({
@@ -106,7 +106,7 @@ export const setRatingForReservation = request => {
             throw respData.Message;
         }
 
-        var reservation = getState().reservations.selectedReservation;
+        var reservation = getState().userReservations.selectedReservation;
         reservation.Rating = request.rating;
 
         dispatch({

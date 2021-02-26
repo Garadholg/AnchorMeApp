@@ -81,6 +81,7 @@
         }
     },
     "reservation_history": {
+        "change_status": "Ažuriraj stanje",
         "no_accepted_reservation": "Trenutno nemate prihvaćenih rezervacija",
         "no_active_reservation": "Trenutno nemate aktivnih rezervacija",
         "no_completed_reservation": "Nemate uspješno odrađenih rezervacija",

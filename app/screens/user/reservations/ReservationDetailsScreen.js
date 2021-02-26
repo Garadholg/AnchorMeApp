@@ -60,12 +60,12 @@ const ReservationDetailsScreen = props => {
 
                                 <View style={styles.infoContainer}>
                                     <Text style={styles.infoLabel}>{t('harbour_reservation.reservation_period')}:</Text>
-                                    <Text style={styles.infoText}>{moment(reservation.startDate).format(t('date_format'))}  -  {moment(reservation.endDate).format(t('date_format'))}</Text>
+                                    <Text style={styles.infoText}>{moment(reservation.StartDate).format(t('date_format'))}  -  {moment(reservation.EndDate).format(t('date_format'))}</Text>
                                 </View>
 
                                 <View style={styles.infoContainer}>
                                     <Text style={styles.infoLabel}>{t('harbour_reservation.notes')}:</Text>
-                                    <Text style={styles.infoText}>{reservation.notes == "" ? "-" : reservation.notes}</Text>
+                                    <Text style={styles.infoText}>{reservation.Notes == "" || reservation.Notes == null ? "-" : reservation.notes}</Text>
                                 </View>
                             </View>
                         </View>

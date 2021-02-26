@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Image, ScrollView, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-import { Rating } from 'react-native-ratings';
 import { Ionicons, MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 
 import Colours from '../../../constants/colours';

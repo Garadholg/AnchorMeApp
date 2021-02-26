@@ -13,5 +13,6 @@ namespace AnchorMe.Services.Interfaces
         GetReservationsForUserResponse GetReservationsForUser(GetReservationsForUserRequest request);
         GetReservationsForAdminResponse GetReservationsForAdmin(GetReservationsForAdminRequest request);
         SetRatingForReservationResponse SetRatingForReservation(SetRatingForReservationRequest request);
+        UpdateReservationStatusResponse UpdateReservationStatus(UpdateReservationStatusRequest request);
     }
 }

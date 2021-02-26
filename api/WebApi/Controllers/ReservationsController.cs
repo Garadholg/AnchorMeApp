@@ -71,18 +71,18 @@ namespace WebApi.Controllers
             return Ok(response);
         }
 
-        //[HttpPost]
-        //[Route("api/reservations/updateStatus")]
-        //public IHttpActionResult UpdateReservationStatus([FromBody]UpdateReservationStatusRequest request)
-        //{
-        //    UpdateReservationStatusResponse response = reservationService.UpdateReservationStatus(request);
+        [HttpPost]
+        [Route("api/reservations/updateStatus")]
+        public IHttpActionResult UpdateReservationStatus([FromBody]UpdateReservationStatusRequest request)
+        {
+            UpdateReservationStatusResponse response = reservationService.UpdateReservationStatus(request);
 
-        //    if (!response.Successful)
-        //    {
-        //        return BadRequest(response.Message);
-        //    }
+            if (!response.Successful)
+            {
+                return BadRequest(response.Message);
+            }
 
-        //    return Ok(response);
-        //}
+            return Ok(response);
+        }
     }
 }

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
 
 import NavigationHeader from '../../../components/common/NavigationHeader';
-import ReservationCard from '../../../components/reservations/ReservationCard';
+import AdminReservationCard from '../../../components/reservations/AdminReservationCard';
 import * as adminReservationsActions from '../../../store/actions/adminReservations';
 import { LocalizedStrings as t } from '../../../translations/Translations';
 import Colours from '../../../constants/colours';
@@ -16,14 +16,14 @@ const AdminActiveReservationsScreen = props => {
 
     const dispatch = useDispatch();
 
-    const onReservationSelected = (id) => {
-        //dispatch(reservationsActions.setSelectedReservation(id, true));
-        props.navigation.navigate('ReservationDetails');
+    const onReservationSelected = (id, status) => {
+        dispatch(adminReservationsActions.setSelectedReservation(id, status));
+        props.navigation.navigate('AdminReservationDetails');
     };
 
     const renderReservationCard = item => {
         return (
-            <ReservationCard
+            <AdminReservationCard
                 reservation={item.item}
                 onPress={onReservationSelected}
             />
